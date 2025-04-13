@@ -197,7 +197,7 @@ console.log(`${window.location.origin}${cover_page}`);
         <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div
-              style={{ 'background-image': `url('${window.location.origin}${cover_page}')` }}
+              style={{ backgroundImage: `url('${window.location.origin}${cover_page}')` }}
               className={`relative w-full h-96 md:h-[460px] lg:h-[560px] bg-cover rounded-xl`}
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl opacity-20 blur-lg"></div>
