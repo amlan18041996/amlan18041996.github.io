@@ -17,7 +17,7 @@ function App() {
   const theme = getThemeColors(currentTheme);
 
   return (
-    <Router>
+    <Router basename="/">
       <div className={`min-h-screen ${theme.background} ${theme.text}`}>
         <Navbar />
         <Routes>
