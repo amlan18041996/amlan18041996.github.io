@@ -22,9 +22,9 @@ function Projects() {
   return (
     <div className="pt-16">
       <section className="py-32">
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <h2 className="text-4xl font-bold text-center mb-20">Featured Work</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div key={index} className={`group relative ${theme.contentBackground} rounded-xl overflow-hidden`}>
                 <img 

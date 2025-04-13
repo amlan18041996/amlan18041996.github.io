@@ -120,7 +120,7 @@ function Guestbook() {
   return (
     <div className="pt-16">
       <section className="py-32">
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="flex justify-between items-center mb-16">
             <h1 className="text-4xl font-bold">Guestbook</h1>
             <button

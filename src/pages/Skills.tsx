@@ -46,15 +46,15 @@ function Skills() {
   return (
     <div className="pt-16">
       <section className="py-32">
-        <div className="container mx-auto px-4">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="text-center mb-20">
             <h1 className="text-5xl font-bold mb-6">Technical Skills</h1>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400">
               A comprehensive overview of my technical expertise and proficiency across various domains
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
               <div key={index} className={`relative group ${theme.contentBackground} p-8 rounded-2xl`}>
                 {/* <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-20 blur group-hover:opacity-30 transition-opacity"></div> */}

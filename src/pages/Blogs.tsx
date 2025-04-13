@@ -116,7 +116,7 @@ function Blogs() {
   return (
     <div className="pt-16">
       <section className="py-32">
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <h1 className="text-5xl font-bold mb-20 text-center">Latest Articles</h1>
 
           {/* Search and Categories */}
@@ -153,7 +153,7 @@ function Blogs() {
           </div>
 
           {/* Blog Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredBlogs.map((blog) => (
               <Link 
                 key={blog.id}

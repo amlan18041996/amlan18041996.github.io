@@ -50,7 +50,7 @@ function Galleria() {
   return (
     <div className="pt-16">
       <section className="py-32">
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <h1 className="text-5xl font-bold mb-20 text-center">Photo Gallery</h1>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">

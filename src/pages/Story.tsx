@@ -187,21 +187,25 @@ function Story() {
       ))}
     </div>
   );
+console.log(`${window.location.origin}${cover_page}`);
 
   return (
     <div className="pt-16">
       {/* About Section */}
       <section className="py-14 relative">
         <div className={`absolute inset-0 ${theme.background} opacity-30`}></div>
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
+            <div
+              style={{ 'background-image': `url('${window.location.origin}${cover_page}')` }}
+              className={`relative w-full h-96 md:h-[460px] lg:h-[560px] bg-cover rounded-xl`}
+            >
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl opacity-20 blur-lg"></div>
-              <img 
+              {/* <img 
                 src={cover_page} 
                 alt="Profile" 
                 className="relative rounded-xl w-full h-96 md:h-[460px] lg:h-[560px] object-cover"
-              />
+              /> */}
             </div>
             <div>
               <h2 className="text-4xl font-bold mb-8">About Me</h2>
@@ -228,7 +232,7 @@ function Story() {
 
       {/* Experience Section */}
       <section className={`py-14 bg-gradient-to-b ${theme.background}`}>
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
               <h2 className="text-3xl font-bold mb-8">Professional Experience</h2>
@@ -256,8 +260,8 @@ function Story() {
       {/* Principles Section */}
       <section className="py-14 relative">
         <div className={`absolute inset-0 ${theme.background} opacity-30`}></div>
-        <div className="container px-4 lg:px-40">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="container px-4 lg:px-28 2xl:px-36">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {principles.map((principle, index) => (
               <div key={index} className={`group relative h-full ${theme.contentBackground} p-8 rounded-xl`}>
                 <div className={`mb-6 inline-block p-4 rounded-xl bg-gradient-to-r ${theme.accent}`}>

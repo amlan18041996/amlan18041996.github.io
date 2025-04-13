@@ -52,7 +52,7 @@ function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-40 ${theme.background}/80 backdrop-blur-lg border-b border-white/10`}>
-        <div className="container px-4 lg:px-40">
+        <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="flex items-center justify-between h-16">
             <NavLink to="/" className="flex items-center space-x-2 text-xl font-bold">
               <Code2 className={`${theme.text}`} />

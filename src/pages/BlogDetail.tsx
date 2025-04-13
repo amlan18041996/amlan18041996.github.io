@@ -72,7 +72,7 @@ function BlogDetail() {
           style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))' }}
         />
       </div>
-      <article className="container px-4 lg:px-40 py-14 -mt-20">
+      <article className="container px-4 lg:px-28 2xl:px-36 py-14 -mt-20">
         {/* Header */}
         <div className="mb-16">
           <div className="w-full flex justify-between mb-4">
