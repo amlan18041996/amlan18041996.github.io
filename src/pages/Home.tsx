@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Code, Palette, Lightbulb, ArrowRight } from 'lucide-react';
+import { Code, Palette, Lightbulb, ArrowRight, Circle } from 'lucide-react';
 import ContactModal from '../components/ContactModal';
 import TypeEffect from '../components/TypeEffect';
 import { getThemeColors, useThemeStore } from '../store/themeStore';
@@ -15,17 +15,29 @@ function Home() {
     {
       icon: <Code size={32} />,
       title: 'Web Development',
-      description: 'Building scalable and performant web applications using modern technologies and best practices.'
+      description: [
+        'Modern, responsive web applications',
+        'Performance optimization',
+        'SEO-friendly architecture'
+      ]
     },
     {
       icon: <Palette size={32} />,
       title: 'UI/UX Design',
-      description: 'Creating intuitive and engaging user interfaces that deliver exceptional user experiences.'
+      description: [
+        'Intuitive user interfaces',
+        'User-centered design approach',
+        'Interactive prototypes'
+      ]
     },
     {
       icon: <Lightbulb size={32} />,
       title: 'Digital Strategy',
-      description: 'Developing comprehensive digital strategies to help businesses achieve their online goals.'
+      description: [
+        'Strategic planning',
+        'Digital transformation',
+        'Technical consultation'
+      ]
     }
   ];
 
@@ -105,7 +117,11 @@ function Home() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-400">{service.description}</p>
+                <ul className="text-gray-400 space-y-2">
+                  {service.description.map((desc) => {
+                    return <li className="flex items-center gap-x-2"><Circle className="size-2 fill-current" />{desc}</li>;
+                  })}
+                </ul>
               </div>
             ))}
           </div>

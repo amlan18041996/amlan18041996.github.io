@@ -1,6 +1,7 @@
 import React from 'react';
-import { Calendar, Clock, Share2, BookmarkPlus } from 'lucide-react';
+import user_profile_cover from '../assets/main_cover_page.jpeg';
 import { getThemeColors, useThemeStore } from '../store/themeStore';
+import { Calendar, Clock, Share2, BookmarkPlus } from 'lucide-react';
 
 function BlogDetail() {
   const { currentTheme } = useThemeStore();
@@ -77,7 +78,7 @@ function BlogDetail() {
         <div className="mb-16">
           <div className="w-full flex justify-between mb-4">
             <div className="flex items-center text-gray-400 gap-x-6">
-              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80" alt="Author" className="rounded-full size-12 object-cover" />
+              <img src={user_profile_cover} alt="Author" className="rounded-full size-12 object-cover" />
               <span className=" font-semibold">by Amlan Sengupta</span>
               <div className="flex items-center">
                 <Calendar size={20} className="mr-2" />

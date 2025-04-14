@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ArrowRight, Award, Briefcase, GraduationCap, Target, Rocket, Heart } from 'lucide-react';
 import { getThemeColors, useThemeStore } from '../store/themeStore';
 import cover_page from '../assets/story_cover_page.jpeg';
@@ -14,58 +14,77 @@ interface ExperienceItem {
 function Story() {
   const { currentTheme } = useThemeStore();
   const theme = getThemeColors(currentTheme);
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = React.useState<string | null>(null);
 
   const jobExperience: ExperienceItem[] = [
     {
-      year: '2024',
-      title: 'Senior Developer',
-      company: 'Tech Solutions Inc.',
+      year: '2022 — Present',
+      title: 'Technical Lead',
+      company: 'GSPANN Technologies',
       description: 'Leading development teams and architecting scalable solutions',
       details: [
-        'Led a team of 5 developers in building a cloud-native application',
-        'Implemented microservices architecture using Node.js and Docker',
-        'Reduced deployment time by 60% through CI/CD optimization',
-        'Mentored junior developers and conducted code reviews'
+        'Created the whole architectural flow of frontend based on Vue JS, VueUse & Pinia while content was added via AEM',
+        'Responsible for creating user-management-profile page',
+        'Responsible for creating home-page for client ( confidential )',
+        'Dialog level design with multiple options for creating and designing the component on AEM 6.5',
+        'Developed own custom libraries such as data-table, carousel, toast using Core JS',
+        'Building AEM-Franklin`s/Helix multi level blocks & templates for the UI differentiated among multi opcos/brands. Responsible for creating PoCs of integrating COVEO search-engine via COVEO-Atomic | COVEO-Headless | COVEO-API',
+        'Integrated COVEO Search-Engine on different projects under same client using Coveo Atomic component ( feature rich with a collection of reusable components )',
+        'Integrated COVEO Search-Engine on different projects under same client using Coveo Headless ( a middle-layer library for developing coveo-powered UI components )',
+        'Integrated COVEO Search-Engine on different projects under same client using Coveo API ( raw APIs )',
       ]
     },
     {
-      year: '2022',
-      title: 'Full Stack Developer',
-      company: 'Digital Innovations Ltd.',
+      year: '2021 — 2022',
+      title: 'Software Engineer',
+      company: 'TIC Retail Accessories India Pvt Ltd',
       description: 'Building end-to-end applications and mentoring junior developers',
       details: [
-        'Developed full-stack applications using React and Node.js',
-        'Implemented real-time features using WebSocket',
-        'Optimized database queries resulting in 40% performance improvement',
+        'Made Customer Portal frontend for users who can check their product status for Repair or Replace case [ Built on React JS ] along with handling multiple cases such as Authentication, Authorization, 2 Factor Authentication using either email or sms. Participated in creating some of the microservices using symfony',
+        'Responsible for Field-Component Design module where CX team can create and manage their components directly from the UI. It`s UI was built on top of React JS but Core JS was utilized for the Drag & Drop functionality',
+        'Migrating a antiquated project built on ( Symfony & Angular ) to ( Lumen & React JS )',
         'Created technical documentation and API specifications'
+      ]
+    },
+    {
+      year: '2017 - 2021',
+      title: 'Full Stack Developer',
+      company: 'UG INFO SYSTEMS PVT. LTD',
+      description: 'Building end-to-end applications',
+      details: [
+        'Created an extension for social media platform for WhatsApp and WeChat with the objective of capturing and monitoring messages between Relationship-Managers & their appointed clients to enhance the client experience',
+        'User management application with multiple roles like Managers, Clients, Relationship Managers, Admin, Developer with specific authorized features ( Built on top of Angular 2 )',
+        'Responsible for building the architecture & user-interface for creating the flow for the interaction between coaches/trainees & their appointed pupils. Payment Integration system like Stripe & video sharing/capturing features like Zoom were used in this platform',
+        'Webcrawling extension with the objective of capturing certain text or images or videos and exporting it as PDF/DOC using python with Core JS',
+        'Created a chat application as Bespoke with including features like,',
+        '- Integrated WeChat & WhatsApp( via Twilio ) & Line API`s onto the chat where clients can message with their day-day social chat platforms as well',
+        '- Integrated Socket.io to transmit & receive runtime messages',
+        '- Integrated a custom AI bot to resolve some basic queries of clients with the help of Botman, DialogFlow'
       ]
     }
   ];
 
   const academics: ExperienceItem[] = [
     {
-      year: '2020',
-      title: 'Master of Computer Science',
-      company: 'Tech University',
+      year: '2017 - 2019',
+      title: 'Master of Computer Applications',
+      company: 'Himalayan University',
       description: 'Specialized in Artificial Intelligence and Machine Learning',
       details: [
-        'GPA: 3.9/4.0',
+        'GPA: 6.9/10.0',
         'Research focus on Natural Language Processing',
-        'Published 2 papers in international conferences',
         'Teaching Assistant for Data Structures course'
       ]
     },
     {
-      year: '2018',
-      title: 'Bachelor of Computer Science',
-      company: 'State University',
+      year: '2014 - 2017',
+      title: 'Bachelor of Computer Applications',
+      company: 'Himalayan University',
       description: 'Graduated with honors',
       details: [
         'First Class Honors',
         'President of Computer Science Society',
-        'Completed 3 industry internships',
-        'Won University Hackathon 2017'
+        'Completed 1 industry internships'
       ]
     }
   ];
@@ -175,7 +194,7 @@ function Story() {
                 <ul className="space-y-2">
                   {item.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start">
-                      <span className="w-2 h-2 mt-2 mr-3 rounded-full bg-blue-400"></span>
+                      <span className="w-2 h-2 mt-2 mr-3 rounded-full bg-blue-400 shrink-0"></span>
                       <span className="text-gray-400">{detail}</span>
                     </li>
                   ))}
@@ -187,7 +206,6 @@ function Story() {
       ))}
     </div>
   );
-console.log(`${window.location.origin}${cover_page}`);
 
   return (
     <div className="pt-16">
@@ -198,7 +216,7 @@ console.log(`${window.location.origin}${cover_page}`);
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div
               style={{ backgroundImage: `url('${window.location.origin}${cover_page}')` }}
-              className={`relative w-full h-96 md:h-[460px] lg:h-[560px] bg-cover rounded-xl`}
+              className={`relative w-full h-96 md:h-[460px] lg:h-full bg-cover rounded-xl`}
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl opacity-20 blur-lg"></div>
               {/* <img 
@@ -207,15 +225,15 @@ console.log(`${window.location.origin}${cover_page}`);
                 className="relative rounded-xl w-full h-96 md:h-[460px] lg:h-[560px] object-cover"
               /> */}
             </div>
-            <div>
+            <div className="mb-auto">
               <h2 className="text-4xl font-bold mb-8">About Me</h2>
               <p className="text-gray-300 text-lg mb-8">
-                With over 5 years of experience in software development, I've had the privilege of working
-                on diverse projects that challenge the status quo and push technological boundaries.
-                My approach combines technical expertise with creative problem-solving to deliver
-                exceptional digital solutions.
+                Full Stack Developer with over 7.6 years of experience adept in working with providing services for both Frontend & Backend technologies. Highly skilled in architectural flow, designing user-interfaces, build micro-services and implementation of functional specifications.
+                <br />
+                <br />
+                Always seeking challenges for which I can study and contribute new ideas. I am always flexible to work for my company in order to achieve the task no matter the cost. Well acquainted with agile & HR methodologies.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className={`p-6 rounded-xl ${theme.contentBackground}`}>
                   <h3 className="font-semibold mb-2 text-blue-400">Frontend</h3>
                   <p className="text-gray-400">React, TypeScript, Next.js</p>
