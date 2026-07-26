@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Award, Briefcase, GraduationCap, Target, Rocket, Heart } from 'lucide-react';
+import { ArrowRight, Award, Briefcase, GraduationCap, Target, Rocket, Heart, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router';
 import { getThemeColors, useThemeStore } from '../store/themeStore';
 import cover_page from '../assets/story_cover_page.jpeg';
 
@@ -18,102 +19,109 @@ function Story() {
 
   const jobExperience: ExperienceItem[] = [
     {
-      year: '2022 — Present',
+      year: 'Oct 2022 — Present',
       title: 'Technical Lead',
-      company: 'GSPANN Technologies',
-      description: 'Leading development teams and architecting scalable solutions',
+      company: 'GSPANN Technologies, Gurgaon',
+      description: 'Leading AEM and frontend architecture for enterprise clients',
       details: [
-        'Created the whole architectural flow of frontend based on Vue JS, VueUse & Pinia while content was added via AEM',
-        'Responsible for creating user-management-profile page',
-        'Responsible for creating home-page for client ( confidential )',
-        'Dialog level design with multiple options for creating and designing the component on AEM 6.5',
-        'Developed own custom libraries such as data-table, carousel, toast using Core JS',
-        'Building AEM-Franklin`s/Helix multi level blocks & templates for the UI differentiated among multi opcos/brands. Responsible for creating PoCs of integrating COVEO search-engine via COVEO-Atomic | COVEO-Headless | COVEO-API',
-        'Integrated COVEO Search-Engine on different projects under same client using Coveo Atomic component ( feature rich with a collection of reusable components )',
-        'Integrated COVEO Search-Engine on different projects under same client using Coveo Headless ( a middle-layer library for developing coveo-powered UI components )',
-        'Integrated COVEO Search-Engine on different projects under same client using Coveo API ( raw APIs )',
+        'Architected frontend flows using Vue JS, Pinia & AEM for Lifesciences Danaher',
+        'Migrated AEM 6.5 projects to AEM Edge Delivery Services across multiple brands',
+        'Integrated COVEO search engine via Atomic, Headless, and API approaches',
+        'Implemented website internationalization for English, Mandarin, and Japanese regions',
       ]
     },
     {
-      year: '2021 — 2022',
+      year: 'Apr 2021 — Sep 2022',
       title: 'Software Engineer',
-      company: 'TIC Retail Accessories India Pvt Ltd',
-      description: 'Building end-to-end applications and mentoring junior developers',
+      company: 'TIC Retail Accessories India Pvt Ltd, Gurgaon',
+      description: 'Built customer-facing eCommerce support platforms',
       details: [
-        'Made Customer Portal frontend for users who can check their product status for Repair or Replace case [ Built on React JS ] along with handling multiple cases such as Authentication, Authorization, 2 Factor Authentication using either email or sms. Participated in creating some of the microservices using symfony',
-        'Responsible for Field-Component Design module where CX team can create and manage their components directly from the UI. It`s UI was built on top of React JS but Core JS was utilized for the Drag & Drop functionality',
-        'Migrating a antiquated project built on ( Symfony & Angular ) to ( Lumen & React JS )',
-        'Created technical documentation and API specifications'
+        'Built Customer Portal frontend on React JS with Auth, Authorization, and 2FA',
+        'Created Field-Component Design module with drag-and-drop using Core JS',
+        'Migrated legacy Symfony & Angular project to Lumen & React JS',
       ]
     },
     {
-      year: '2017 - 2021',
+      year: 'Jul 2017 — Mar 2021',
       title: 'Full Stack Developer',
-      company: 'UG INFO SYSTEMS PVT. LTD',
-      description: 'Building end-to-end applications',
+      company: 'UG INFO SYSTEMS PVT. LTD, New Delhi',
+      description: 'Built full-stack applications spanning banking, education, and web tools',
       details: [
-        'Created an extension for social media platform for WhatsApp and WeChat with the objective of capturing and monitoring messages between Relationship-Managers & their appointed clients to enhance the client experience',
-        'User management application with multiple roles like Managers, Clients, Relationship Managers, Admin, Developer with specific authorized features ( Built on top of Angular 2 )',
-        'Responsible for building the architecture & user-interface for creating the flow for the interaction between coaches/trainees & their appointed pupils. Payment Integration system like Stripe & video sharing/capturing features like Zoom were used in this platform',
-        'Webcrawling extension with the objective of capturing certain text or images or videos and exporting it as PDF/DOC using python with Core JS',
-        'Created a chat application as Bespoke with including features like,',
-        '- Integrated WeChat & WhatsApp( via Twilio ) & Line API`s onto the chat where clients can message with their day-day social chat platforms as well',
-        '- Integrated Socket.io to transmit & receive runtime messages',
-        '- Integrated a custom AI bot to resolve some basic queries of clients with the help of Botman, DialogFlow'
+        'Built banking dashboard with WhatsApp/WeChat integration and real-time chat via Socket.io',
+        'Developed education platform with Stripe payments and Zoom video integration',
+        'Created web crawling tool with Python/Flask and PDF/DOC export',
       ]
     }
   ];
 
   const academics: ExperienceItem[] = [
     {
-      year: '2017 - 2019',
-      title: 'Master of Computer Applications',
+      year: 'Apr 2017 — Apr 2019',
+      title: 'Masters in Computer Applications',
       company: 'Himalayan University',
-      description: 'Specialized in Artificial Intelligence and Machine Learning',
-      details: [
-        'GPA: 6.9/10.0',
-        'Research focus on Natural Language Processing',
-        'Teaching Assistant for Data Structures course'
-      ]
+      description: 'IT',
+      details: []
     },
     {
-      year: '2014 - 2017',
+      year: 'Jul 2014 — Jul 2017',
       title: 'Bachelor of Computer Applications',
       company: 'Himalayan University',
-      description: 'Graduated with honors',
-      details: [
-        'First Class Honors',
-        'President of Computer Science Society',
-        'Completed 1 industry internships'
-      ]
+      description: 'IT',
+      details: []
     }
   ];
 
   const awards: ExperienceItem[] = [
     {
-      year: '2023',
-      title: 'Best Tech Innovation Award',
-      description: 'Recognized for developing an AI-powered code review system',
-      details: [
-        'Automated code review process',
-        'Reduced review time by 70%',
-        'Implemented machine learning algorithms',
-        'Open-sourced the solution'
-      ]
+      year: 'Mar 2025',
+      title: 'Apex Inspiration',
+      description: 'Recognized for outstanding contribution and inspiration',
+      details: []
+    },
+    {
+      year: 'Mar 2024',
+      title: 'Orion Award',
+      description: 'Recognized for excellence in performance',
+      details: []
+    },
+    {
+      year: 'Mar 2024',
+      title: 'Jupiter Award',
+      description: 'Recognized for exceptional contribution',
+      details: []
     }
   ];
 
   const certifications: ExperienceItem[] = [
     {
-      year: '2023',
-      title: 'AWS Solutions Architect',
-      description: 'Professional certification for AWS cloud architecture',
-      details: [
-        'Cloud architecture design',
-        'Security best practices',
-        'Cost optimization',
-        'High availability patterns'
-      ]
+      year: 'Oct 2025',
+      title: 'Oracle AI Foundations',
+      description: 'Oracle',
+      details: []
+    },
+    {
+      year: 'Nov 2025',
+      title: 'Oracle Foundations Associate',
+      description: 'Oracle',
+      details: []
+    },
+    {
+      year: 'Aug 2024 — Mar 2025',
+      title: 'AWS Cloud Practitioner',
+      description: 'Udemy',
+      details: []
+    },
+    {
+      year: 'Jan 2024 — Mar 2024',
+      title: 'Python',
+      description: 'Udemy',
+      details: []
+    },
+    {
+      year: 'Jun 2022 — Aug 2023',
+      title: 'React JS',
+      description: 'Udemy',
+      details: []
     }
   ];
 
@@ -228,19 +236,19 @@ function Story() {
             <div className="mb-auto">
               <h2 className="text-4xl font-bold mb-8">About Me</h2>
               <p className="text-gray-300 text-lg mb-8">
-                Full Stack Developer with over 7.6 years of experience adept in working with providing services for both Frontend & Backend technologies. Highly skilled in architectural flow, designing user-interfaces, build micro-services and implementation of functional specifications.
+                Full Stack Developer with over 9 years of experience adept in providing services for Frontend, Backend and AEM 6.5 technologies. Highly skilled in architectural flow, designing user-interfaces, building micro-services and implementation of functional specifications.
                 <br />
                 <br />
-                Always seeking challenges for which I can study and contribute new ideas. I am always flexible to work for my company in order to achieve the task no matter the cost. Well acquainted with agile & HR methodologies.
+                Always seeking challenges for which I can study and contribute new ideas. Well acquainted with agile & HR methodologies.
               </p>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className={`p-6 rounded-xl ${theme.contentBackground}`}>
                   <h3 className="font-semibold mb-2 text-blue-400">Frontend</h3>
-                  <p className="text-gray-400">React, TypeScript, Next.js</p>
+                  <p className="text-gray-400">React, Vue JS, Angular, Next JS, Nuxt JS</p>
                 </div>
                 <div className={`p-6 rounded-xl ${theme.contentBackground}`}>
-                  <h3 className="font-semibold mb-2 text-purple-400">Backend</h3>
-                  <p className="text-gray-400">Node.js, Python, PostgreSQL</p>
+                  <h3 className="font-semibold mb-2 text-purple-400">Backend & AEM</h3>
+                  <p className="text-gray-400">Node.js, Python, PHP, AEM 6.5, AEM EDS</p>
                 </div>
               </div>
             </div>
@@ -253,7 +261,12 @@ function Story() {
         <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-3xl font-bold mb-8">Professional Experience</h2>
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold">Professional Experience</h2>
+                <Link to="/projects" className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                  Know More <ExternalLink size={14} className="ml-1" />
+                </Link>
+              </div>
               {renderExperienceList(jobExperience, <Briefcase size={24} />)}
             </div>
             <div>
