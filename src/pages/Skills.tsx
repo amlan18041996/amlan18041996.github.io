@@ -1,4 +1,13 @@
-import { Database, Layout, Terminal, Cloud, Shield, Brain } from "lucide-react";
+import {
+  Code,
+  Layers,
+  GitBranch,
+  Server,
+  Database,
+  LayoutTemplate,
+  Wrench,
+  Cloud,
+} from "lucide-react";
 import { getThemeColors, useThemeStore } from "../store/themeStore";
 
 function Skills() {
@@ -6,54 +15,112 @@ function Skills() {
   const theme = getThemeColors(currentTheme);
   const skillCategories = [
     {
-      title: "Frontend Development",
-      icon: <Layout size={24} />,
-      skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Redux"],
+      title: "Web Technologies",
+      icon: <Code size={24} />,
+      skills: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "TypeScript",
+        "Sass",
+        "Tailwind CSS",
+        "Bootstrap",
+      ],
+      level: 95,
+    },
+    {
+      title: "JS Libraries & Frameworks",
+      icon: <Layers size={24} />,
+      skills: [
+        "React JS",
+        "Vue JS",
+        "Angular 2/4/13",
+        "Next JS",
+        "Nuxt JS",
+        "Svelte",
+        "Svelte Kit",
+        "jQuery",
+        "Lodash",
+        "Moment",
+        "Tensorflow",
+      ],
       level: 90,
     },
     {
+      title: "State Management",
+      icon: <GitBranch size={24} />,
+      skills: ["Pinia", "Redux with Thunk", "TanStack"],
+      level: 85,
+    },
+    {
       title: "Backend Development",
-      icon: <Terminal size={24} />,
+      icon: <Server size={24} />,
       skills: [
-        "Node.js",
         "Python",
-        "Express",
+        "PHP",
+        "Node JS",
         "Flask",
         "Django",
-        "FastAPI",
-        "GraphQL",
+        "Express JS",
+        "Laravel",
+        "Symfony",
+        "CodeIgniter",
+        "Lumen",
+        "Livewire",
       ],
       level: 85,
     },
     {
-      title: "Database",
+      title: "Databases",
       icon: <Database size={24} />,
-      skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "SQL"],
+      skills: [
+        "MySQL",
+        "MongoDB",
+        "MariaDB",
+        "SQLite",
+        "Redis",
+        "PostgreSQL",
+      ],
       level: 80,
     },
     {
-      title: "DevOps",
-      icon: <Cloud size={24} />,
-      skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Linux"],
+      title: "CMS & AEM",
+      icon: <LayoutTemplate size={24} />,
+      skills: [
+        "Wordpress",
+        "AEM UI",
+        "AEM Franklin",
+        "HTL",
+        "OSGIM Cloud",
+        "JCR/CRX",
+        "Artifactory",
+      ],
+      level: 80,
+    },
+    {
+      title: "Tools & Others",
+      icon: <Wrench size={24} />,
+      skills: [
+        "Docker",
+        "GraphQL",
+        "JWT",
+        "DialogFlow",
+        "Social Media Integrations",
+        "Zoom Integration",
+      ],
       level: 75,
     },
     {
-      title: "Security",
-      icon: <Shield size={24} />,
-      skills: ["OAuth", "JWT", "HTTPS", "Security Headers", "Auth0"],
-      level: 70,
-    },
-    {
-      title: "AI & ML",
-      icon: <Brain size={24} />,
+      title: "Cloud & Deployment",
+      icon: <Cloud size={24} />,
       skills: [
-        "TensorFlow",
-        "PyTorch",
-        "Scikit-learn",
-        "NLP",
-        "Computer Vision",
+        "AWS EC2/S3",
+        "Heroku",
+        "GitHub Pages",
+        "Netlify",
+        "Oracle OCI",
       ],
-      level: 65,
+      level: 75,
     },
   ];
 
@@ -64,8 +131,8 @@ function Skills() {
           <div className="text-center mb-20">
             <h1 className="text-5xl font-bold mb-6">Technical Skills</h1>
             <p className="text-xl text-gray-400">
-              A comprehensive overview of my technical expertise and proficiency
-              across various domains
+              Full Stack Developer with 9+ years of experience across Frontend,
+              Backend, and AEM technologies
             </p>
           </div>
 
