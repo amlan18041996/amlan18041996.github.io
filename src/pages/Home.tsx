@@ -154,8 +154,9 @@ function Home() {
       </header>
 
       {/* Services Section */}
-      <section className={`py-14 bg-gradient-to-b`}>
-        <div className="container px-4 lg:px-28 2xl:px-36">
+      <section className="py-14 relative">
+        <div className={`absolute inset-0 ${theme.background} opacity-30`}></div>
+        <div className="relative container px-4 lg:px-28 2xl:px-36">
           <h2 className="text-4xl font-bold text-center mb-20">Services</h2>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {services.map((service, serviceIndex) => (
