@@ -1,68 +1,100 @@
-import React from "react";
 import { Link } from "react-router";
 import { Code, Palette, Lightbulb, ArrowRight, Circle } from "lucide-react";
-import ContactModal from "../components/ContactModal";
 import TypeEffect from "../components/TypeEffect";
 import { getThemeColors, useThemeStore } from "../store/themeStore";
 import user_profile_cover from "../assets/main_cover_page.jpeg";
 
 function Home() {
-  const [showContact, setShowContact] = React.useState(false);
   const { currentTheme } = useThemeStore();
   const theme = getThemeColors(currentTheme);
 
   const services = [
     {
       icon: <Code size={32} />,
-      title: "Web Development",
+      title: "Frontend Development",
       description: [
-        "Modern, responsive web applications",
-        "Performance optimization",
-        "SEO-friendly architecture",
+        "React, Vue JS, Angular, Next JS, Nuxt JS, Svelte",
+        "TypeScript, JavaScript (ES6+)",
+        "Responsive UI with Tailwind CSS & Bootstrap",
       ],
     },
     {
       icon: <Palette size={32} />,
-      title: "UI/UX Design",
+      title: "Backend Development",
       description: [
-        "Intuitive user interfaces",
-        "User-centered design approach",
-        "Interactive prototypes",
+        "Node JS, Python, PHP with Express, Flask, Django",
+        "Laravel, Symfony, CodeIgniter",
+        "REST APIs, GraphQL, Microservices",
       ],
     },
     {
       icon: <Lightbulb size={32} />,
-      title: "Digital Strategy",
+      title: "AEM & CMS",
       description: [
-        "Strategic planning",
-        "Digital transformation",
-        "Technical consultation",
+        "AEM 6.5, AEM Edge Delivery Services",
+        "AEM Franklin/Helix, HTL, Dialogs, Forms",
+        "Content migration & component development",
+      ],
+    },
+    {
+      icon: <Code size={32} />,
+      title: "Full Stack Solutions",
+      description: [
+        "End-to-end application architecture",
+        "Payment integration (Stripe, PayPal)",
+        "Real-time features with Socket.io",
+      ],
+    },
+    {
+      icon: <Palette size={32} />,
+      title: "Databases & Search",
+      description: [
+        "MySQL, MongoDB, PostgreSQL, Redis",
+        "SQLite, MariaDB",
+        "COVEO search integration",
+      ],
+    },
+    {
+      icon: <Lightbulb size={32} />,
+      title: "Cloud & DevOps",
+      description: [
+        "Docker, CI/CD pipelines",
+        "AWS EC2/S3, Oracle OCI, Heroku",
+        "GitHub Pages, Netlify deployment",
       ],
     },
   ];
 
   const featuredProjects = [
     {
-      title: "E-Commerce Platform",
+      title: "Lifesciences Danaher",
+      company: "GSPANN Technologies",
       description:
-        "A modern e-commerce solution with real-time inventory management.",
-      image:
-        "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80",
+        "AEM Edge Delivery Services migration for multiple brands with COVEO search integration and internationalization.",
+      tags: ["Vue JS", "AEM EDS", "TypeScript", "COVEO"],
+      gradient: "from-purple-600 to-pink-500",
     },
     {
-      title: "Analytics Dashboard",
-      description: "Data visualization platform with AI-powered insights.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
+      title: "Solvup",
+      company: "TIC Retail Accessories",
+      description:
+        "Customer Support eCommerce platform with React JS portal, 2FA authentication, and drag-and-drop component builder.",
+      tags: ["React JS", "Symfony", "MongoDB", "Docker"],
+      gradient: "from-green-600 to-emerald-500",
+    },
+    {
+      title: "APAN Store",
+      company: "Personal Project",
+      description:
+        "Full-featured e-commerce storefront with Shopify, Typesense search, Stripe payments, and admin dashboard.",
+      tags: ["Nuxt 4", "Shopify", "Typesense", "Stripe"],
+      gradient: "from-sky-600 to-blue-500",
     },
   ];
 
   return (
     <>
       <header className="min-h-screen relative flex items-center">
-        <div
-          className={`absolute inset-0 ${theme.background} opacity-30`}
-        ></div>
         <div className="container px-4 lg:px-28 2xl:px-36">
           <div className="flex flex-col items-center text-center">
             <div className="relative w-64 h-64 mb-8">
@@ -103,14 +135,13 @@ function Home() {
               technologies.
             </p>
             <div className="flex space-x-6">
-              <button
-                onClick={() => {
-                  setShowContact(true);
-                }}
+              <a
+                href="/amlan-sengupta-full-stack.pdf"
+                download
                 className={`text-lg tracking-wider ${theme.accent} bg-gradient-to-r px-8 py-3 rounded-full font-medium transition-colors`}
               >
                 Get in touch
-              </button>
+              </a>
               <Link
                 to="/projects"
                 className="text-lg tracking-wider border border-white/20 hover:border-white/40 px-8 py-3 rounded-full font-medium transition-colors"
@@ -123,8 +154,9 @@ function Home() {
       </header>
 
       {/* Services Section */}
-      <section className={`py-14 bg-gradient-to-b`}>
-        <div className="container px-4 lg:px-28 2xl:px-36">
+      <section className="py-14 relative">
+        <div className={`absolute inset-0 ${theme.background} opacity-30`}></div>
+        <div className="relative container px-4 lg:px-28 2xl:px-36">
           <h2 className="text-4xl font-bold text-center mb-20">Services</h2>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {services.map((service, serviceIndex) => (
@@ -171,18 +203,20 @@ function Home() {
             {featuredProjects.map((project, projectIndex) => (
               <div
                 key={projectIndex}
-                className={`group relative flex lg:block ${theme.contentBackground} p-2 lg:p-0 rounded-2xl overflow-hidden`}
+                className={`group relative ${theme.contentBackground} rounded-2xl overflow-hidden`}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-44 h-44 lg:w-full lg:h-48 object-cover lg:rounded-none rounded-2xl"
-                />
-                <div className="pb-2 pl-4 lg:p-6">
-                  <h3 className="text-xl font-bold mb-0 lg:mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400">{project.description}</p>
+                <div className={`w-full h-48 bg-gradient-to-br ${project.gradient} opacity-70 group-hover:opacity-100 transition-opacity`}></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">{project.title}</h3>
+                  <p className="text-xs text-gray-500 mb-3">{project.company}</p>
+                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="px-2 py-1 text-xs rounded-full bg-white/10">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -190,11 +224,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={showContact}
-        onClose={() => setShowContact(false)}
-      />
     </>
   );
 }
