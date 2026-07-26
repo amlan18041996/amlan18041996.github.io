@@ -1,13 +1,10 @@
-import React from "react";
 import { Link } from "react-router";
 import { Code, Palette, Lightbulb, ArrowRight, Circle } from "lucide-react";
-import ContactModal from "../components/ContactModal";
 import TypeEffect from "../components/TypeEffect";
 import { getThemeColors, useThemeStore } from "../store/themeStore";
 import user_profile_cover from "../assets/main_cover_page.jpeg";
 
 function Home() {
-  const [showContact, setShowContact] = React.useState(false);
   const { currentTheme } = useThemeStore();
   const theme = getThemeColors(currentTheme);
 
@@ -103,14 +100,13 @@ function Home() {
               technologies.
             </p>
             <div className="flex space-x-6">
-              <button
-                onClick={() => {
-                  setShowContact(true);
-                }}
+              <a
+                href="/amlan-sengupta-full-stack.pdf"
+                download
                 className={`text-lg tracking-wider ${theme.accent} bg-gradient-to-r px-8 py-3 rounded-full font-medium transition-colors`}
               >
                 Get in touch
-              </button>
+              </a>
               <Link
                 to="/projects"
                 className="text-lg tracking-wider border border-white/20 hover:border-white/40 px-8 py-3 rounded-full font-medium transition-colors"
@@ -190,11 +186,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={showContact}
-        onClose={() => setShowContact(false)}
-      />
     </>
   );
 }
