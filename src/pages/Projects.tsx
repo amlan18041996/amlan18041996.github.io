@@ -7,7 +7,7 @@ function Projects() {
 
   const workProjects = [
     {
-      title: 'Lifesciences Danaher, Leica Microsystems, Phenomenex, Aldevron',
+      title: 'Helius, LMS, Phenix, Avion',
       company: 'GSPANN Technologies',
       role: 'Technical Lead',
       period: 'Oct 2022 — Present',
@@ -16,7 +16,7 @@ function Projects() {
       gradient: 'from-purple-600 to-pink-500',
     },
     {
-      title: 'Lifesciences Danaher',
+      title: 'Optimus',
       company: 'GSPANN Technologies',
       role: 'Technical Lead',
       period: 'Oct 2022 — Present',
@@ -84,6 +84,13 @@ function Projects() {
       tags: ['React 19', 'Python', 'Flask', 'Ollama', 'SQLite', 'Docker'],
       gradient: 'from-teal-600 to-green-500',
     },
+    {
+      title: 'Tastemind',
+      period: 'June 2026 — September 2026',
+      desc: "Your taste is unique. so does your app. Tastemind is an AI-powered pastime brain that doesn't follow trends — it follows you. Chat with it, describe a mood, let it decode the crowd's verdict. Zero cost. Infinite curiosity. Built with SvelteKit, Groq & Gemini. This isn't a movie app. This is your entertainment oracle.",
+      tags: ['SvelteKit 2', 'Typescript', 'Tailwind CSS', 'Supabase', 'Groq', 'Google Gemini', 'TMDB API'],
+      gradient: 'from-fuchsia-600 to-violet-600',
+    }
   ];
 
   return (

@@ -67,7 +67,7 @@ function Home() {
 
   const featuredProjects = [
     {
-      title: "Lifesciences Danaher",
+      title: "Helius",
       company: "GSPANN Technologies",
       description:
         "AEM Edge Delivery Services migration for multiple brands with COVEO search integration and internationalization.",
