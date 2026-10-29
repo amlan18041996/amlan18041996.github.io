@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface ThemeState {
   currentTheme: string;
@@ -50,12 +51,17 @@ const themes = {
   }
 };
 
-export const useThemeStore = create<ThemeState>((set) => ({
-  currentTheme: 'default',
-  isDarkMode: true,
-  setTheme: (theme) => set({ currentTheme: theme }),
-  toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode }))
-}));
+export const useThemeStore = create<ThemeState>()(
+  persist(
+    (set) => ({
+      currentTheme: 'default',
+      isDarkMode: true,
+      setTheme: (theme) => set({ currentTheme: theme }),
+      toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+    }),
+    { name: 'portfolio-theme' },
+  ),
+);
 
 export const getThemeColors = (themeName: string) => {
   return themes[themeName as keyof typeof themes] || themes.default;

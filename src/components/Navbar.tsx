@@ -1,182 +1,163 @@
-import React from 'react';
-import { NavLink } from 'react-router';
-import { 
-  Code2, Grip, Home, User, Briefcase, BookOpen, 
-  Mail, Image, Settings, X, Palette, Languages, MessageSquare 
-} from 'lucide-react';
-import { useThemeStore, getThemeColors } from '../store/themeStore';
-import CustomRadio from './CustomRadio';
-import ContactModal from './ContactModal';
+import { useEffect, useRef, useState } from 'react';
+import { Check, ChevronDown, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router';
+import { portfolioData } from '../data/portfolio';
+import { primaryLinks, themeOptions } from '../constants/site';
+import { useThemeStore } from '../store/themeStore';
 
 function Navbar() {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [showSettings, setShowSettings] = React.useState(false);
-  const [showContact, setShowContact] = React.useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [themeMenuOpen, setThemeMenuOpen] = useState(false);
+  const themePickerRef = useRef<HTMLDivElement>(null);
   const { currentTheme, setTheme } = useThemeStore();
-  const theme = getThemeColors(currentTheme);
+  const location = useLocation();
 
-  const navItems = [
-    { path: '/', icon: <Home size={24} />, label: 'Home' },
-    { path: '/story', icon: <User size={24} />, label: 'My Story' },
-    { path: '/projects', icon: <Briefcase size={24} />, label: 'Projects' },
-    { path: '/skills', icon: <BookOpen size={24} />, label: 'Skills' },
-    { path: '/blogs', icon: <BookOpen size={24} />, label: 'Blogs' },
-    { path: '/guestbook', icon: <MessageSquare size={24} />, label: 'Guestbook' },
-    { path: '/galleria', icon: <Image size={24} />, label: 'Galleria' },
-    { 
-      icon: <Mail size={24} />, 
-      label: 'Contact',
-      onClick: () => {
-        setShowContact(true);
-        setIsOpen(false);
-      }
-    },
-    { 
-      icon: <Settings size={24} />, 
-      label: 'Settings',
-      onClick: () => {
-        setShowSettings(true);
-        setIsOpen(false);
-      }
-    }
-  ];
+  useEffect(() => {
+    if (!themeMenuOpen) return;
 
-  const themes = [
-    { name: 'default', label: 'Classic Dark' },
-    { name: 'white', label: 'Classic White' },
-    { name: 'ocean', label: 'Ocean Blue' },
-    { name: 'forest', label: 'Forest Green' },
-    { name: 'sunset', label: 'Warm Sunset' },
-  ];
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (event.target instanceof Node && !themePickerRef.current?.contains(event.target)) {
+        setThemeMenuOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setThemeMenuOpen(false);
+        themePickerRef.current
+          ?.querySelector<HTMLButtonElement>('.theme-picker-trigger')
+          ?.focus({ preventScroll: true });
+      }
+    };
+
+    document.addEventListener('pointerdown', closeOnOutsideClick);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsideClick);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [themeMenuOpen]);
+
+  useEffect(() => {
+    if (!themeMenuOpen) return;
+    const frame = window.requestAnimationFrame(() => {
+      themePickerRef.current
+        ?.querySelector<HTMLButtonElement>('.theme-option[aria-checked="true"]')
+        ?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [themeMenuOpen]);
+
+  const closeMenus = () => {
+    setMenuOpen(false);
+    setThemeMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [menuOpen]);
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-40 ${theme.background}/80 backdrop-blur-lg border-b border-white/10`}>
-        <div className="container px-4 lg:px-28 2xl:px-36">
-          <div className="flex items-center justify-between h-16">
-            <NavLink to="/" className="flex items-center space-x-2 text-xl font-bold">
-              <Code2 className={`${theme.text}`} />
-              <span>Amlan Sengupta</span>
-            </NavLink>
-            <div className="w-[42px]"></div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Fixed Menu Button */}
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-14 h-14 rounded-full bg-gradient-to-r ${theme.accent} flex items-center justify-center text-white shadow-md hover:shadow-blue-500/20 transition-all duration-300`}
-      >
-        {isOpen ? (
-          <X size={24} className="transition-transform duration-300 rotate-90" />
-        ) : (
-          <Grip size={24} className="transition-transform duration-300" />
-        )}
-      </button>
-
-      {/* Navigation Menu Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 z-40 flex items-end justify-center">
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-          ></div>
-          <div className={`${theme.background}/95 backdrop-blur-xl border-t border-white/10 p-8 rounded-t-xl relative z-10 w-full max-w-2xl mb-28`}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {navItems.map((item, index) => (
-                item.path ? (
-                  <NavLink
-                    key={item.path}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) => `
-                      flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300
-                      ${isActive 
-                        ? `bg-gradient-to-br ${theme.accent}/20 border border-white/10 ${theme.text}` 
-                        : 'bg-white/5 hover:bg-white/10 text-gray-300 hover:text-blue-400'
-                      }
-                    `}
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <header className="site-header">
+        <div className="page-container nav-layout">
+          <Link className="brand-link" to="/" onClick={closeMenus}>
+            <span className="brand-mark" aria-hidden="true">AS</span>
+            <span>{portfolioData.person.name}</span>
+          </Link>
+          <div className={`nav-controls ${menuOpen ? 'is-open' : ''}`}>
+            <nav className="primary-navigation" id="primary-navigation" aria-label="Primary navigation">
+              {primaryLinks.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    className={isActive ? 'is-active' : undefined}
+                    to={item.href}
+                    key={item.href}
+                    onClick={closeMenus}
                   >
-                    {item.icon}
-                    <span className="mt-2 font-medium text-sm">{item.label}</span>
-                  </NavLink>
-                ) : (
-                  <button
-                    key={index}
-                    onClick={item.onClick}
-                    className="flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-blue-400"
-                  >
-                    {item.icon}
-                    <span className="mt-2 font-medium text-sm">{item.label}</span>
-                  </button>
-                )
-              ))}
-            </div>
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
-        </div>
-      )}
-
-      {/* Settings Modal */}
-      {showSettings && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setShowSettings(false)}
-          ></div>
-          <div className={`${theme.background} rounded-xl p-8 w-full max-w-2xl mx-4 relative z-10`}>
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-2xl font-bold">Settings</h2>
-              <button 
-                onClick={() => setShowSettings(false)}
-                className="p-2 hover:bg-white/10 rounded-lg"
+          <div className="nav-actions">
+            <div className="theme-picker" ref={themePickerRef}>
+              <button
+                className="theme-picker-trigger"
+                type="button"
+                aria-label="Choose color theme"
+                aria-haspopup="menu"
+                aria-expanded={themeMenuOpen}
+                onClick={() => setThemeMenuOpen((open) => !open)}
               >
-                <X size={24} />
+                <span
+                  className="theme-current-swatch"
+                  style={{ backgroundColor: themeOptions.find((option) => option.value === currentTheme)?.color }}
+                  aria-hidden="true"
+                />
+                <ChevronDown size={14} aria-hidden="true" />
               </button>
-            </div>
-
-            <div className="space-y-8">
-              {/* Theme Selection */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <Palette size={20} className="mr-2" /> Theme
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {themes.map((themeOption) => (
-                    <CustomRadio
-                      key={themeOption.name}
-                      id={`theme-${themeOption.name}`}
-                      name="theme"
-                      value={themeOption.name}
-                      checked={currentTheme === themeOption.name}
-                      onChange={(e) => setTheme(e.target.value)}
-                      label={themeOption.label}
-                      preview={
-                        <div className={`w-full h-20 rounded-lg bg-gradient-to-r ${getThemeColors(themeOption.name).accent}`} />
-                      }
-                    />
+              {themeMenuOpen && (
+                <div className="theme-menu" role="menu" aria-label="Color themes">
+                  {themeOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      className={`theme-option ${currentTheme === option.value ? 'is-selected' : ''}`}
+                      type="button"
+                      role="menuitemradio"
+                      aria-checked={currentTheme === option.value}
+                      title={option.label}
+                      aria-label={option.label}
+                      onKeyDown={(event) => {
+                        if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+                        event.preventDefault();
+                        const options = Array.from(
+                          themePickerRef.current?.querySelectorAll<HTMLButtonElement>('.theme-option') ?? [],
+                        );
+                        const currentIndex = options.indexOf(event.currentTarget);
+                        const nextIndex = event.key === 'Home'
+                          ? 0
+                          : event.key === 'End'
+                            ? options.length - 1
+                            : (currentIndex + (event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : -1) + options.length) % options.length;
+                        options[nextIndex]?.focus({ preventScroll: true });
+                      }}
+                      onClick={() => {
+                        setTheme(option.value);
+                        setThemeMenuOpen(false);
+                        themePickerRef.current
+                          ?.querySelector<HTMLButtonElement>('.theme-picker-trigger')
+                          ?.focus({ preventScroll: true });
+                      }}
+                    >
+                      <span className="theme-option-swatch" style={{ backgroundColor: option.color }}>
+                        {currentTheme === option.value && <Check size={14} aria-hidden="true" />}
+                      </span>
+                    </button>
                   ))}
                 </div>
-              </div>
-
-              {/* Internationalization */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 flex items-center">
-                  <Languages size={20} className="mr-2" /> Language
-                </h3>
-                <select className="w-full bg-white/5 border border-white/10 rounded-lg p-3">
-                  <option value="en">English</option>
-                  <option value="es">Español</option>
-                  <option value="fr">Français</option>
-                </select>
-              </div>
+              )}
             </div>
+            <button
+              className="mobile-menu-toggle"
+              type="button"
+              aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={menuOpen}
+              aria-controls="primary-navigation"
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X size={21} aria-hidden="true" /> : <Menu size={21} aria-hidden="true" />}
+            </button>
           </div>
         </div>
-      )}
-
-      {/* Contact Modal */}
-      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
+      </header>
     </>
   );
 }

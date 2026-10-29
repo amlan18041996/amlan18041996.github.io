@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Code, Palette, Lightbulb, ArrowRight, Circle } from "lucide-react";
+import { Code, Palette, Lightbulb, ArrowRight } from "lucide-react";
 import TypeEffect from "../components/TypeEffect";
 import { getThemeColors, useThemeStore } from "../store/themeStore";
 import user_profile_cover from "../assets/main_cover_page.jpeg";
@@ -168,16 +168,7 @@ function Home() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <ul className="text-gray-400 space-y-2">
-                  {service.description.map((desc) => {
-                    return (
-                      <li className="flex items-center gap-x-2">
-                        <Circle className="size-2 fill-current" />
-                        {desc}
-                      </li>
-                    );
-                  })}
-                </ul>
+                <p className="text-gray-400">{service.description}</p>
               </div>
             ))}
           </div>

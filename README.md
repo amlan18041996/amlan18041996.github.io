@@ -1,56 +1,54 @@
-## <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="20"> Glad to see you here <img src="https://raw.githubusercontent.com/aemmadi/aemmadi/master/wave.gif" width="20">
+# Amlan Sengupta — Portfolio
 
-My name is **_Amlan Sengupta_** working as a **Full Stack Developer** with with over **7 years** of _experience_ adept in working with providing
-services for both Frontend & Backend technologies. Highly skilled in architectural flow,
-desgining user-interfaces, building microservices and implementation of functional specifications.
+A responsive, data-driven portfolio built with React, TypeScript, and Vite. It includes a homepage, dedicated About, Experience, Works, Services, Contact, and Digital Résumé pages, and a typed portfolio data source.
 
-## ⚡ Technologies
+## Development
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-045B78?style=flat-square&logo=javascript)
-![TypeScript](https://img.shields.io/badge/-TypeScript-045B78?style=flat-square&logo=typescript)
-![JQuery](https://img.shields.io/badge/-Jquery-005571?style=flat&logo=Jquery)
-![React](https://img.shields.io/badge/-React-045B78?style=flat-square&logo=react)
-![Nextjs](https://img.shields.io/badge/-Next.js-045B78?style=flat&logo=Next.js)
-![Vue](https://img.shields.io/badge/-VueJS-045B78?style=flat&logo=Vue.js)
-![Angular](https://img.shields.io/badge/-Angular-045B78?style=flat&logo=Angular)
+```sh
+npm install
+npm run dev
+```
 
-![Nodejs](https://img.shields.io/badge/-Nodejs-045B78?style=flat-square&logo=Node.js)
-![Expressjs](https://img.shields.io/badge/-Express-045B78?style=flat&logo=Express)
+## Build and preview
 
-![Python](https://img.shields.io/badge/-Python-045B78?style=flat-square&logo=Python)
-![Django](https://img.shields.io/badge/-Django-045B78?style=flat&logo=Django)
-![Flask](https://img.shields.io/badge/-Flask-045B78?style=flat&logo=Flask)
+```sh
+npm run build
+npm run preview
+```
 
-![PHP](https://img.shields.io/badge/-PHP-045B78?style=flat&logo=PHP)
-![Symfony](https://img.shields.io/badge/-Symfony-045B78?style=flat&logo=Symfony)
-![Laravel](https://img.shields.io/badge/-Laravel-045B78?style=flat&logo=Laravel)
-![CodeIgniter](https://img.shields.io/badge/-CodeIgniter-045B78?style=flat&logo=CodeIgniter)
-![Cakephp](https://img.shields.io/badge/-Cakephp-045B78?style=flat&logo=Cakephp)
+The production build is written to `dist/`.
 
-![HTML5](https://img.shields.io/badge/-HTML5-045B78?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-045B78?style=flat-square&logo=css3)
-![Bootstrap](https://img.shields.io/badge/-Bootstrap-045B78?style=flat-square&logo=bootstrap)
-![Tailwind](https://img.shields.io/badge/-Tailwind-045B78?style=flat&logo=Tailwindcss)
+## GitHub Pages deployment
 
-![MySQL](https://img.shields.io/badge/-MySQL-045B78?style=flat-square&logo=mysql)
-![MariaDB](https://img.shields.io/badge/-MariaDB-045B78?style=flat&logo=MariaDB)
-![MongoDB](https://img.shields.io/badge/-MongoDB-045B78?style=flat-square&logo=mongodb)
+This repository is the `amlan18041996.github.io` user site, so Vite's base path is `/`. The `public/404.html` fallback preserves client-side deep-link handling on GitHub Pages.
 
-![Redis](https://img.shields.io/badge/-Redis-045B78?style=flat-square&logo=Redis)
-![GraphQL](https://img.shields.io/badge/-GraphQL-045B78?style=flat-square&logo=graphql)
+```sh
+npm run deploy
+```
 
-![Java](https://img.shields.io/badge/-java-045B78?style=flat-square&logo=openjdk)
-![Heroku](https://img.shields.io/badge/-Heroku-045B78?style=flat-square&logo=heroku)
-![Docker](https://img.shields.io/badge/-Docker-045B78?style=flat-square&logo=docker)
-![Amazon AWS](https://img.shields.io/badge/Amazon%20AWS-045B78?style=flat-square&logo=amazon-aws)
+The deploy script builds the site and publishes `dist/` to the `gh-pages` branch.
 
-![Git](https://img.shields.io/badge/-Git-045B78?style=flat-square&logo=git)
-![GitHub](https://img.shields.io/badge/-GitHub-045B78?style=flat-square&logo=github)
-![BitBucket](https://img.shields.io/badge/-BitBucket-045B78?style=flat-square&logo=bitbucket)
+## Pages and content
 
-## 📫 Feel free to reach out to me
+- `/` — Homepage with experience highlights, five randomly selected interactive project cards, skills, credentials, principles, interests, contact, and desktop section navigation.
+- `/about` — Biography, development approach, and the kinds of work Amlan enjoys building.
+- `/experience` — Full work history, including responsibilities and contributions for each role, plus education.
+- `/works` — All professional and personal projects with full project details.
+- `/services` — Service roles, typical use cases, and expected deliverables.
+- `/contact` — A contact form that opens the visitor’s email app, direct contact details, and social links.
+- `/digital-resume` — Web résumé with career history, skills, education, credentials, and a PDF download.
 
-[![Linkedin Badge](https://img.shields.io/badge/-amlansengupta-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/amlansengupta1996/)](https://www.linkedin.com/in/amlansengupta1996/)
-[![Gmail Badge](https://img.shields.io/badge/-amlans3-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:amlans3@gmail.com)](mailto:amlans3@gmail.com)
+The theme picker is available in the header across pages. Project cards open an accessible details dialog. The homepage section navigation scrolls smoothly and highlights the section in view, while respecting reduced-motion preferences. Route-level pages are lazy-loaded; the original profile portrait is retained alongside a smaller homepage-optimized derivative. New page routes are handled client-side and the `public/404.html` fallback supports direct GitHub Pages navigation.
 
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=amlan18041996)
+## Project structure
+
+- `src/data/portfolio.ts` is the content source of truth. Edit it to update profile, social links, experience, projects, skills, education, credentials, awards, services, principles, languages, and interests.
+- `src/types/portfolio.ts` defines the typed content model.
+- `src/pages/` contains route-level page compositions.
+- `src/features/` contains reusable portfolio sections and feature UI.
+- `src/components/` and `src/layouts/` contain shared interface and site-shell components.
+- `src/assets/` contains the portraits and credential/award images used by the page.
+- `src/styles/` contains the theme tokens, responsive layout, and reduced-motion-aware animations.
+- `src/constants/site.ts` defines primary navigation, homepage section navigation, and built-in theme options.
+
+The résumé is served from `public/amlan-sengupta-full-stack.pdf`. Social, verification, and award links are stored alongside their corresponding records in the portfolio data.

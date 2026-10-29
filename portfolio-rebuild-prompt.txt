@@ -1,0 +1,54 @@
+Act as an expert frontend engineer, UI/UX designer, and motion designer. Your task is to analyze, organize, and completely re-imagine this portfolio website. 
+
+### Objective
+Analyze the entire codebase of this repository from scratch. Do NOT use any assumptions or placeholder data. Search through every file, component, asset, config, and style to extract all information about the person. This includes their name, role, bio, work experience, personal projects, skills, certifications, education, social links, contact information and any other relevant details. Treat this discovered information as the source of truth. 
+
+
+### Goals
+
+#### 1. Analyze The Codebase
+- Thoroughly read and understand the current architecture, tech stack, dependencies, and build/deploy setup (Pay extra attention to Vite and the GitHub Pages deployment).
+- Extract all hard coded content and create a centralized data source for it.
+- Identify any unused components, dead code or redundant assets.
+- Take note of existing patterns (e.g themes, styling conventions, routing, etc) to decide what to keep, improve or replace. 
+
+
+#### 2. Organize The Folder Structure
+- Re-organize the project into a clean, scalable and modular structure. Some suggestions to follow are: `src/components/`, `src/features/`, `src/layouts/`, `src/pages/`, `src/data/`, `src/hooks/`, `src/lib/` or `src/utils/`, `src/styles/`, `src/types/`, `src/assets/` and `src/constants/`.
+- Move all extracted content into a structured data file (e.g `src/data/portfolio.ts` or split by domain) with proper TypeScript types.
+- Refactor imports to be clean and logical. 
+- Ensure the new structure is easy to extend and maintain.
+
+
+#### 3. Re-Create A Creative, Animated & Interactive Portfolio
+Completely rebuild the UI whilst keeping every piece of information that was discovered intact. Create a modern portfolio with the following in mind: 
+
+- **Design**: Clean, modern and creative. Lean into a unique identity for this person whilst being readable and professional. 
+- **Animations**: Implement tasteful scroll-reveals, micro-interactions, page transitions and hover effects. Prioritize performance over excessive effects.
+- **Interactivity**: Add interactive elements such as an animated hero, interactive project cards, a skills showcase, an experience timeline or anything that would elevate the UX.
+- **Sections**: Recreate all relevant sections (Hero, About, Work Experience, Personal Projects, Skills, Certifications/Achievements, Story/Timeline, Contact and Footer). Only add sections that have data, or improve existing ones.
+- **Responsiveness**: Must be fully responsive across mobile, tablet and desktop.
+- **Accessibility**: Follow semantic HTML, proper alt-text, keyboard navigability and sufficient color contrast.
+- **Theming**: If a theme system exists, either preserve it or improve it. If not, consider adding a tasteful light/dark mode.
+- **Performance**: Lazy load assets where applicable, optimize animations for 60fps and be mindful of bundle size.
+
+
+### Constraints
+- DO NOT fabricate any information. Only use what exists within the codebase.
+- Preserve all of the person's projects, experiences, certifications and links as accurately as possible. 
+- Keep the project deployable to GitHub Pages. Do not break the existing build/deploy pipeline. Account for base paths if needed.
+- Use the existing tech stack where reasonable (e.g Vite, React, TypeScript, TailwindCSS) unless there's a compelling reason to change it, in which case justify it.
+- Prioritize readability and maintainability over over-engineering.
+- Keep animations subtle and tasteful. They should enhance the content, not distract from it.
+
+
+### Execution Requirements
+1. **Create a New Branch First**: Before doing anything else, create and switch to a new branch (e.g., `feat/portfolio-rebuild-animated`) using `git checkout -b <branch-name>`. Do not work directly on `main`/`master`.
+2. **Plan First**: Before writing any code, provide a detailed plan. This must include your analysis findings, proposed folder structure, data model, animation ideas, tech decisions and a step by step implementation plan. Do not proceed until I approve this plan.
+3. **Migrate, don't delete blindly**: Treat existing work with respect. Migrate valid components and assets over to the new structure instead of deleting them without reason.
+4. **Centralize Data**: As you extract information, build out the typed data layer. The UI should be driven by this data as much as possible.
+5. **Incremental Changes**: Implement in logical, testable chunks. Ensure the app builds and runs after each major change.
+6. **Document**: At the end, provide a summary of all changes, the new structure, any newly added dependencies, and instructions to run/build/deploy the project.
+
+
+Start by analyzing the codebase.

@@ -32,6 +32,7 @@ function ScrollToTop() {
       {isVisible && (
         <button
             onClick={scrollToTop}
+            aria-label="Scroll to top"
             className={`
                 fixed bottom-8 right-8 z-50 p-3 rounded-full
                 bg-gradient-to-r ${theme.accent}

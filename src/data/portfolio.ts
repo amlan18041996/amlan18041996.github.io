@@ -1,0 +1,676 @@
+import type { PortfolioData } from '../types/portfolio';
+import mainPortrait from '../assets/main_cover_page_optimized.jpeg';
+import storyPortrait from '../assets/story_cover_page.jpeg';
+import apexAward from '../assets/apex_inspire_2024-2025.jpeg';
+import awsCertificate from '../assets/aws_cloud_practitioner.jpg';
+import jupiterAwardPhoto from '../assets/jupiter_2023-2024.jpeg';
+import jupiterAwardCertificate from '../assets/jupiter_award.jpeg';
+import oracleAiCertificate from '../assets/oracle_ai_foundations_eCertificate_(OCI25AICFA).jpeg';
+import oracleFoundationsCertificate from '../assets/oracle_foundations_associate_(OCI25FNDCFA).jpeg';
+import orionAwardPhoto from '../assets/orion_2023-2024.jpeg';
+import orionAwardCertificate from '../assets/orion_award.jpeg';
+import pythonCertificate from '../assets/python_udemy.jpg';
+import reactCertificate from '../assets/react_udemy.jpg';
+
+export const portfolioData: PortfolioData = {
+  person: {
+    name: 'Amlan Sengupta',
+    role: 'Full Stack Developer',
+    roleVariants: [
+      'Frontend Developer',
+      'Backend Developer',
+      'MEVN Developer',
+      'MERN Developer',
+      'React Developer',
+    ],
+    tagline:
+      'Crafting digital experiences through elegant code and innovative solutions. Full-stack developer specializing in modern web technologies.',
+    bio: 'Full Stack Developer with over 9 years of experience adept in providing services for Frontend, Backend and AEM 6.5 technologies. Highly skilled in architectural flow, designing user-interfaces, building micro-services and implementation of functional specifications. Always seeking challenges for which I can study and contribute new ideas. Well acquainted with agile & HR methodologies.',
+    email: 'amlans3@gmail.com',
+    phone: '+91-9958081618',
+    location: 'New Delhi, India',
+    appointmentUrl: 'https://calendar.app.google/7AbrEiwKvj8hzc7L9',
+    avatar: mainPortrait,
+    secondaryAvatar: storyPortrait,
+    resumeUrl: 'amlan-sengupta-full-stack.pdf',
+  },
+  socials: [
+    { platform: 'website', url: 'https://amlan18041996.github.io', label: 'Portfolio' },
+    { platform: 'github', url: 'https://github.com/amlan18041996', label: 'GitHub' },
+    { platform: 'linkedin', url: 'https://www.linkedin.com/in/amlansengupta1996/', label: 'LinkedIn' },
+    { platform: 'email', url: 'mailto:amlans3@gmail.com', label: 'Email' },
+  ],
+  experiences: [
+    {
+      id: 'exp-gspann-lead',
+      role: 'Technical Lead',
+      company: 'GSPANN Technologies',
+      period: 'Oct 2022 — Present',
+      location: 'Gurgaon',
+      companyUrl: 'https://www.gspann.com',
+      description: 'Leading AEM and frontend architecture for enterprise clients.',
+      responsibilitiesAndContributions: [
+        'Architected frontend flows using Vue JS, Pinia & AEM for Lifesciences Danaher.',
+        'Migrated AEM 6.5 projects to AEM Edge Delivery Services across multiple brands.',
+        'Integrated COVEO search using Atomic, Headless, and API approaches.',
+        'Implemented website internationalization for English, Mandarin, and Japanese regions.',
+        'Built multi-level AEM Franklin/Helix blocks and templates for multiple brands.',
+        'Authored pages with AEM Universal Editor, experience fragments, and DAM; contributed custom AEM EDS forms.',
+      ],
+    },
+    {
+      id: 'exp-tic',
+      role: 'Software Engineer',
+      company: 'TIC Retail Accessories India Pvt Ltd',
+      period: 'Apr 2021 — Sep 2022',
+      location: 'Gurgaon',
+      companyUrl: 'https://www.ticgroup.com.au',
+      description: 'Built customer-facing eCommerce support platforms.',
+      responsibilitiesAndContributions: [
+        'Built a React customer portal for product repair/replace cases with authentication, authorization, and email/SMS two-factor authentication.',
+        'Participated in Symfony microservices development.',
+        'Created a Field-Component Design module with drag-and-drop functionality using Core JS.',
+        'Migrated a legacy Symfony and Angular project to Lumen and React JS.',
+      ],
+    },
+    {
+      id: 'exp-ug',
+      role: 'Full Stack Developer',
+      company: 'UG INFO SYSTEMS PVT. LTD',
+      period: 'Jul 2017 — Mar 2021',
+      location: 'Jasola, New Delhi',
+      companyUrl: 'https://uginfosystems.com',
+      description: 'Built full-stack applications spanning banking, education, and web tools.',
+      responsibilitiesAndContributions: [
+        'Built a banking dashboard and user-management application for relationship managers, clients, and administrators.',
+        'Created WhatsApp and WeChat extensions for monitoring relationship-manager/client conversations.',
+        'Built real-time chat with Socket.io, integrated WhatsApp via Twilio and WeChat/Line APIs, and added a Botman/DialogFlow AI bot.',
+        'Developed an education platform with Stripe payments and Zoom video sharing/capturing.',
+        'Created a Python/Flask web-crawling tool with PDF/DOC export and content filters.',
+      ],
+    },
+  ],
+  education: [
+    {
+      id: 'edu-mca',
+      degree: 'Masters in Computer Applications',
+      school: 'Himalayan University',
+      period: 'Apr 2017 — Apr 2019',
+      description: 'IT',
+    },
+    {
+      id: 'edu-bca',
+      degree: 'Bachelor of Computer Applications',
+      school: 'Himalayan University',
+      period: 'Jul 2014 — Jul 2017',
+      description: 'IT',
+    },
+  ],
+  projects: [
+    {
+      id: 'proj-helius',
+      title: 'Helius, LMS, Phenix, Avion',
+      type: 'work',
+      company: 'GSPANN Technologies',
+      companyUrl: 'https://www.gspann.com',
+      role: 'Technical Lead',
+      period: 'Oct 2022 — Present',
+      description:
+        'Migration of AEM 6.5 projects to AEM Edge Delivery Services (EDS) to reduce development costs and improve page speed. The resume names Lifesciences Danaher, Leica Microsystems, Phenomenex, and Aldevron among the client brands.',
+      impact: 'The migration was intended to reduce development costs and improve page speed; measured results are not listed in the project notes.',
+      highlights: [
+        'Migrated multiple brands from AEM 6.5 to AEM Edge Delivery Services.',
+        'Built multi-level AEM Franklin/Helix blocks and templates for different brands.',
+        'Integrated COVEO search with Atomic components, Headless, and APIs.',
+        'Implemented English, Mandarin (China), and Japanese (Japan) content localization.',
+        'Used document-based and Universal Editor authoring, Tailwind CSS, Vite, and Cypress.',
+      ],
+      tags: [
+        'Vanilla JavaScript',
+        'TypeScript',
+        'Cypress',
+        'COVEO',
+        'AEM EDS',
+        'Tailwind CSS',
+        'Vite',
+        'HTML5',
+        'CSS3',
+      ],
+      featured: true,
+    },
+    {
+      id: 'proj-optimus',
+      title: 'Optimus',
+      type: 'work',
+      company: 'GSPANN Technologies',
+      companyUrl: 'https://www.gspann.com',
+      role: 'Technical Lead',
+      period: 'Oct 2022 — Present',
+      description:
+        'Scientific electronic parts/components management application for healthcare and pharmaceuticals. Built the frontend architecture in Vue JS, VueUse, and Pinia, with content managed in AEM 6.5.',
+      highlights: [
+        'Created the frontend architecture with Vue JS, VueUse, and Pinia.',
+        'Built user-management/profile pages and AEM 6.5 dialog-level component authoring.',
+        'Developed custom data-table, carousel, and toast libraries using Core JS.',
+        'Worked with AEM dialogs/forms, Granite, HTML5, Tailwind CSS, CSS3, and REST APIs.',
+      ],
+      tags: ['Vue JS 3', 'VueUse', 'Pinia', 'AEM 6.5', 'Tailwind CSS', 'REST APIs'],
+      featured: true,
+    },
+    {
+      id: 'proj-solvup',
+      title: 'Solvup',
+      type: 'work',
+      company: 'TIC Retail Accessories',
+      companyUrl: 'https://www.ticgroup.com.au',
+      role: 'Software Engineer',
+      period: 'Apr 2021 — Sep 2022',
+      description:
+        'Customer Support eCommerce platform for product ticketing, returns, tracking, product details, and case status.',
+      highlights: [
+        'Built the customer portal in React JS with authentication, authorization, and email/SMS two-factor authentication.',
+        'Participated in Symfony microservices development.',
+        'Created a React field-component design module with Core JS drag-and-drop.',
+        'Migrated a legacy Symfony and Angular application to Lumen and React JS.',
+      ],
+      tags: ['React JS', 'Angular 12', 'PHP', 'Symfony', 'Lumen', 'MongoDB', 'MySQL', 'Redis', 'Docker'],
+      featured: true,
+    },
+    {
+      id: 'proj-mediator',
+      title: 'Mediator',
+      type: 'work',
+      company: 'UG INFO SYSTEMS',
+      companyUrl: 'https://uginfosystems.com',
+      role: 'Full Stack Developer',
+      period: 'Jul 2017 — Mar 2021',
+      description:
+        'Banking employee dashboard connecting teams on one platform to manage client relationships and social-media conversations.',
+      highlights: [
+        'Created WhatsApp and WeChat extensions to capture and monitor relationship-manager/client messages.',
+        'Built role-based user management for managers, clients, relationship managers, admins, and developers.',
+        'Integrated WhatsApp via Twilio, WeChat, and Line APIs into bespoke chat.',
+        'Used Socket.io for real-time messages and Botman/DialogFlow for a client-query bot.',
+      ],
+      tags: ['Angular 2', 'Java', 'MySQL', 'Redis', 'Socket.io', 'REST APIs', 'Twilio', 'DialogFlow'],
+    },
+    {
+      id: 'proj-learncurvv',
+      title: 'LearnCurvv',
+      type: 'work',
+      company: 'UG INFO SYSTEMS',
+      companyUrl: 'https://uginfosystems.com',
+      role: 'Full Stack Developer',
+      period: 'Jul 2017 — Mar 2021',
+      description:
+        'Education platform connecting students with courses, mentors, time slots, exam-preparation Q&A, and individual, group, or recorded learning.',
+      highlights: [
+        'Built the architecture and user interface for coach/trainee and pupil interactions.',
+        'Integrated Stripe payments and Zoom video sharing/capturing.',
+      ],
+      tags: ['React JS', 'Stripe', 'Zoom', 'PHP', 'Laravel', 'MongoDB', 'MySQL', 'Docker'],
+    },
+    {
+      id: 'proj-crawler',
+      title: 'Crawler',
+      type: 'work',
+      company: 'UG INFO SYSTEMS',
+      companyUrl: 'https://uginfosystems.com',
+      role: 'Full Stack Developer',
+      period: 'Jul 2017 — Mar 2021',
+      description:
+        'Website crawler that captures selected text, images, or videos from a user-provided URL and provides plain-text, PDF, or DOC exports with filters.',
+      highlights: [
+        'Built the crawler with Python and Flask, using BeautifulSoup for parsing.',
+        'Added selective content extraction and PDF/DOC export.',
+      ],
+      tags: ['Python', 'Flask', 'BeautifulSoup', 'Vanilla JavaScript'],
+    },
+    {
+      id: 'proj-apan',
+      title: 'APAN Store',
+      type: 'personal',
+      period: 'Jul 2026 — Present',
+      description:
+        'Full-featured e-commerce storefront built with Nuxt 4, Vue 3, and TypeScript, integrated with Shopify Storefront API and Stripe.',
+      highlights: [
+        'Self-hosted Typesense with product syncing, autocomplete, trending searches, and faceted filtering.',
+        'Authentication, customer profiles/addresses/order history, and a multi-step checkout.',
+        'Admin dashboard with real-time sales analytics, order management, and charts.',
+        'Multi-stage Docker/Nginx deployment, GitHub Actions CI/CD, and Oracle Cloud Infrastructure.',
+        'Also uses Pinia, Zod, ESLint, Prettier, Husky, and lint-staged.',
+      ],
+      tags: [
+        'Nuxt 4',
+        'Vue 3',
+        'TypeScript',
+        'Shopify',
+        'Typesense',
+        'Stripe',
+        'Pinia',
+        'Zod',
+        'Docker',
+        'Nginx',
+        'GitHub Actions',
+        'Oracle OCI',
+      ],
+      featured: true,
+    },
+    {
+      id: 'proj-vanilla-forge',
+      title: 'Vanilla Forge',
+      type: 'personal',
+      period: 'Mar 2024 — Jun 2026',
+      description:
+        'Thirteen self-contained JavaScript, TypeScript, and library projects demonstrating more than 45 core JS/TS concepts.',
+      highlights: [
+        'Custom SPA architecture with hash routing and lazy-loaded interactive demos.',
+        'Educational JavaScript/TypeScript histories and topic trees.',
+        'Production build with code splitting, CSS purging, and critical CSS inlining.',
+        'Responsive across desktop, tablet, and mobile; zero runtime dependencies for JavaScript projects.',
+      ],
+      tags: [
+        'JavaScript (ES6+)',
+        'TypeScript 5.5+',
+        'Vite 8.1',
+        'Tailwind CSS',
+        'PostCSS',
+        'LightningCSS',
+        'SQL.js',
+        'Web Audio API',
+        'ES Modules',
+      ],
+      featured: true,
+    },
+    {
+      id: 'proj-docu-craft',
+      title: 'Docu-Craft',
+      type: 'personal',
+      period: 'May 2026 — Jul 2026',
+      description:
+        'CSV data-management tool with schema-driven creation, LLM-based synthetic data generation via Ollama, an interactive editor, and an in-memory SQLite query runner.',
+      highlights: [
+        'Drag-and-drop CSV upload, file validation, and configurable schema creation.',
+        'Ollama/LLaMA 3.2 synthetic data generation.',
+        'Table/card editing, inline cell changes, row pinning, search, sorting, and batch operations.',
+        'SQL analysis on in-memory SQLite with change tracking and CSV/PDF export.',
+        'React 19/Vite/Tailwind frontend; Flask/Pandas backend with Docker and Nginx.',
+      ],
+      tags: [
+        'React 19',
+        'Vite 8',
+        'TypeScript',
+        'Python 3.11',
+        'Flask 3',
+        'Pandas',
+        'Ollama',
+        'SQLite',
+        'Docker',
+        'Nginx',
+      ],
+    },
+    {
+      id: 'proj-tastemind',
+      title: 'Tastemind',
+      type: 'personal',
+      period: 'June 2026 — September 2026',
+      description:
+        "An AI-powered pastime and entertainment recommendation app that follows a person's taste and mood, built with SvelteKit, Groq, Gemini, and TMDB.",
+      highlights: [
+        'AI-powered recommendations based on taste and mood.',
+        'Built with SvelteKit, Groq, Gemini, TMDB, and Supabase.',
+      ],
+      tags: ['SvelteKit 2', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Groq', 'Google Gemini', 'TMDB API'],
+    },
+  ],
+  skillCategories: [
+    {
+      id: 'web',
+      title: 'Web Technologies',
+      icon: 'code',
+      skills: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Sass', 'Tailwind CSS', 'Bootstrap 4/5'],
+    },
+    {
+      id: 'js-libraries',
+      title: 'JS Libraries',
+      icon: 'layers',
+      skills: ['React JS', 'jQuery', 'jQuery EasyUI', 'Lodash', 'Moment', 'TensorFlow'],
+    },
+    {
+      id: 'js-frameworks',
+      title: 'JS Frameworks',
+      icon: 'layers',
+      skills: ['Vue JS', 'Angular 2/4/13', 'Next JS', 'Nuxt JS', 'Svelte', 'Svelte Kit'],
+    },
+    {
+      id: 'state',
+      title: 'State Management',
+      icon: 'git-branch',
+      skills: ['Pinia', 'Redux with Thunk', 'TanStack', 'Zustand'],
+    },
+    {
+      id: 'languages',
+      title: 'Programming Languages',
+      icon: 'code',
+      skills: ['Python', 'PHP', 'Node JS', 'Java'],
+    },
+    {
+      id: 'backend',
+      title: 'Programming Language Frameworks',
+      icon: 'server',
+      skills: [
+        'Flask',
+        'Django',
+        'CodeIgniter',
+        'Symfony',
+        'Express JS',
+        'Laravel',
+        'Lumen',
+        'Livewire',
+        'CakePHP',
+      ],
+    },
+    {
+      id: 'db',
+      title: 'Databases',
+      icon: 'database',
+      skills: ['MySQL', 'MongoDB', 'MariaDB', 'SQLite', 'Redis', 'PostgreSQL'],
+    },
+    {
+      id: 'cms',
+      title: 'CMS & AEM',
+      icon: 'layout-template',
+      skills: ['WordPress', 'AEM UI', 'AEM Franklin', 'HTL', 'OSGIM Cloud', 'JCR/CRX', 'Artifactory'],
+    },
+    {
+      id: 'tools',
+      title: 'Tools & Others',
+      icon: 'wrench',
+      skills: [
+        'Docker',
+        'XML',
+        'JSON',
+        'GraphQL',
+        'JWT',
+        'Auth0',
+        'DialogFlow',
+        'Social Media Integrations',
+        'Zoom Integration',
+      ],
+    },
+    {
+      id: 'cloud',
+      title: 'Cloud & Deployment',
+      icon: 'cloud',
+      skills: ['AWS EC2/S3', 'Heroku', 'GitHub Pages', 'Netlify', 'Oracle OCI', 'Cloudflare', 'CI/CD'],
+    },
+    {
+      id: 'payments',
+      title: 'Payment Gateways',
+      icon: 'credit-card',
+      skills: ['Stripe', 'PayPal'],
+    },
+    {
+      id: 'platforms',
+      title: 'Platforms & Tools',
+      icon: 'wrench',
+      skills: ['Linux', 'Ubuntu', 'Windows', 'macOS', 'VS Code', 'IntelliJ', 'PyCharm'],
+    },
+    {
+      id: 'project-tools',
+      title: 'Task Management Tools',
+      icon: 'clipboard',
+      skills: ['Git', 'GitHub', 'Bitbucket', 'Zoho', 'Trello', 'JIRA', 'GitLab'],
+    },
+    {
+      id: 'ai-integrations',
+      title: 'AI & Model Integrations',
+      icon: 'sparkles',
+      skills: ['Groq', 'Google Gemini', 'Ollama', 'LLaMA 3.2', 'DialogFlow', 'Botman', 'TensorFlow'],
+    },
+    {
+      id: 'app-integrations',
+      title: 'App & Platform Integrations',
+      icon: 'plug',
+      skills: ['Supabase', 'TMDB API', 'Shopify Storefront API', 'Coveo', 'Twilio', 'Zoom'],
+    },
+  ],
+  certifications: [
+    {
+      id: 'cert-oracle-ai',
+      title: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate',
+      issuer: 'Oracle',
+      period: 'October 31, 2025',
+      validUntil: 'October 31, 2027',
+      image: oracleAiCertificate,
+      link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=1F274920A86F23279BB07DFF3BBE5E6C8AADB644D9D1950664ED73C7D0CEFEB3',
+    },
+    {
+      id: 'cert-oracle-foundations',
+      title: 'Oracle Cloud Infrastructure 2025 Certified Foundations Associate',
+      issuer: 'Oracle',
+      period: 'November 15, 2025',
+      validUntil: 'November 15, 2027',
+      image: oracleFoundationsCertificate,
+      link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=3490388D193982B89147E52304A1845849C338BC7923246070F6E2986833E5AF',
+    },
+    {
+      id: 'cert-aws',
+      title: '[NEW] Ultimate AWS Certified Cloud Practitioner CLF-C02 2025',
+      issuer: 'Udemy',
+      period: 'August 2024 — March 2025',
+      image: awsCertificate,
+      link: 'https://udemy-certificate.s3.amazonaws.com/pdf/UC-4a9b8e4a-62e9-4438-9a20-3dccd2ad51bf.pdf',
+    },
+    {
+      id: 'cert-python',
+      title: 'Python for Absolute Beginners | Python Beginner to Pro',
+      issuer: 'Udemy',
+      period: 'January 2024 — March 2024',
+      image: pythonCertificate,
+      link: 'https://ude.my/UC-71fd8e10-347a-436d-96b7-55ccb5a8fd9a',
+    },
+    {
+      id: 'cert-react',
+      title: 'React - The Complete Guide (incl Hooks, React Router, Redux)',
+      issuer: 'Udemy',
+      period: 'June 2022 — August 2023',
+      image: reactCertificate,
+      link: 'https://ude.my/UC-e9de4360-6c8e-4453-89ce-5640fd204d10',
+    },
+  ],
+  awards: [
+    {
+      id: 'award-apex',
+      title: 'Apex Inspiration (You Inspire Award)',
+      period: 'March 2025',
+      description: 'Recognized for outstanding contributions, collaborative spirit, initiative, and teamwork.',
+      image: apexAward,
+      link: 'https://drive.google.com/file/d/1oH3oTqEf2vmtQUxyWKu5IcyF_cTw-Gc5/view?usp=sharing',
+    },
+    {
+      id: 'award-orion',
+      title: 'Orion Award',
+      period: 'March 2024',
+      description: 'Recognized for excellence in performance and dedication to delivering solutions.',
+      image: orionAwardCertificate,
+      galleryImage: orionAwardPhoto,
+      link: 'https://drive.google.com/file/d/1aSU1ZWwB43K0pK92BDCpOrvVC-kTkzCp/view?usp=sharing',
+    },
+    {
+      id: 'award-jupiter',
+      title: 'Jupiter Award',
+      period: 'March 2024',
+      description: 'Recognized for exceptional contribution and continued excellence.',
+      image: jupiterAwardCertificate,
+      galleryImage: jupiterAwardPhoto,
+      link: 'https://drive.google.com/file/d/1_E2goUMW5N1NXgr3S6DV4JAfLGVzt7u8/view?usp=sharing',
+    },
+  ],
+  principles: [
+    {
+      id: 'p-vision',
+      title: 'Vision',
+      icon: 'target',
+      description: 'To revolutionize digital experiences through innovative technology solutions.',
+      points: [
+        'Push the boundaries of web technology',
+        'Create seamless user experiences',
+        'Drive digital transformation',
+        'Set new industry standards',
+      ],
+    },
+    {
+      id: 'p-mission',
+      title: 'Mission',
+      icon: 'rocket',
+      description: 'Deliver exceptional digital solutions that empower businesses and delight users.',
+      points: [
+        'Build scalable, maintainable applications',
+        'Foster innovation and creativity',
+        'Provide mentorship and knowledge sharing',
+        'Exceed client expectations',
+      ],
+    },
+    {
+      id: 'p-values',
+      title: 'Values',
+      icon: 'heart',
+      description: 'Guided by principles that ensure excellence in every project.',
+      points: [
+        'Integrity in all interactions',
+        'Continuous learning and growth',
+        'Attention to detail',
+        'User-centered approach',
+      ],
+    },
+  ],
+  services: [
+    {
+      id: 's-frontend',
+      title: 'Frontend Developer',
+      icon: 'code',
+      description: 'Build accessible, responsive interfaces and reusable UI components for web products.',
+      typicalUseCases: ['New product interfaces', 'Responsive redesigns', 'Reusable component systems'],
+      whatYouGet: ['Responsive UI', 'Reusable components', 'Thoughtful interaction states'],
+    },
+    {
+      id: 's-backend',
+      title: 'Backend Developer',
+      icon: 'server',
+      description: 'Develop APIs and application services that connect product experiences to data and integrations.',
+      typicalUseCases: ['REST API implementation', 'Service integrations', 'Existing backend enhancements'],
+      whatYouGet: ['API endpoints', 'Integration logic', 'Maintainable application services'],
+    },
+    {
+      id: 's-mevn',
+      title: 'MEVN Developer',
+      icon: 'layers',
+      description: 'Deliver Vue-based application interfaces with Node.js services and modern state management.',
+      typicalUseCases: ['Vue application features', 'Data-driven product interfaces', 'Full-stack MEVN applications'],
+      whatYouGet: ['Vue interface', 'Connected API workflows', 'Structured state and components'],
+    },
+    {
+      id: 's-mern',
+      title: 'MERN Developer',
+      icon: 'layers',
+      description: 'Build end-to-end web application features with MongoDB, Express, React, and Node.js.',
+      typicalUseCases: ['Full-stack product development', 'User portals', 'Data-driven dashboards'],
+      whatYouGet: ['React UI', 'Node/Express API', 'MongoDB-backed feature workflows'],
+    },
+    {
+      id: 's-react',
+      title: 'React Developer',
+      icon: 'code',
+      description: 'Create React features and product interfaces using a component-based approach.',
+      typicalUseCases: ['React application features', 'Customer portals', 'Interactive dashboards'],
+      whatYouGet: ['Composable React components', 'Responsive interface', 'Integrated product flows'],
+    },
+    {
+      id: 's-aem',
+      title: 'AEM UI Developer',
+      icon: 'layout-template',
+      description: 'Build authorable AEM UI experiences, components, and Edge Delivery Services pages.',
+      typicalUseCases: ['AEM 6.5 UI components', 'AEM Edge Delivery migrations', 'Authoring workflows and forms'],
+      whatYouGet: ['Reusable UI blocks', 'Author-friendly page patterns', 'Content migration support'],
+    },
+    {
+      id: 's-support',
+      title: 'Support Engineer',
+      icon: 'wrench',
+      description: 'Investigate application issues, trace problems across the UI and services, and help restore expected behavior.',
+      typicalUseCases: ['Production issue triage', 'Bug investigation', 'Integration and UI troubleshooting'],
+      whatYouGet: ['Issue diagnosis', 'A clear explanation of findings', 'Targeted fixes and follow-up checks'],
+    },
+  ],
+  developmentApproach: [
+    {
+      title: 'Start with the problem',
+      description:
+        'I begin by understanding the functional requirements, the people using the product, and how information moves through the experience. Mapping the key flows early helps surface assumptions and makes it easier to decide what needs to be built.',
+    },
+    {
+      title: 'Shape the experience',
+      description:
+        'I turn those requirements into clear interface patterns, considering responsive layouts, authoring needs, and how each interaction should behave. The goal is to make the experience understandable and useful rather than adding complexity for its own sake.',
+    },
+    {
+      title: 'Build for the whole system',
+      description:
+        'I choose an implementation that fits the existing architecture, whether that means reusable frontend components, connected APIs and services, or AEM blocks and templates. Keeping boundaries clear supports maintainability as features grow.',
+    },
+    {
+      title: 'Validate and refine',
+      description:
+        'I check that the implementation reflects the requirements, works across screen sizes, and handles its real content and integrations. I use feedback to refine details and contribute fixes that fit the wider product.',
+    },
+    {
+      title: 'Keep learning together',
+      description:
+        'I value collaborative delivery, clear communication, and continuous learning. Sharing context and working through challenges with a team helps produce solutions that are easier to support and improve.',
+    },
+  ],
+  enjoyBuilding:
+    'I enjoy building useful, content-rich web experiences—from reusable AEM components and enterprise sites to customer portals, eCommerce journeys, and full-stack applications. I am especially drawn to work that connects thoughtful interfaces with services, data, and integrations, as well as independent tools that make learning, data management, or discovering entertainment more engaging.',
+  commitments: [
+    {
+      title: 'Understand the need before building',
+      description:
+        'I start from the functional requirements and the people using the product, then shape the interface and implementation around those needs.',
+    },
+    {
+      title: 'Build for clarity and reuse',
+      description:
+        'I favor clear architecture, reusable components, and well-defined boundaries across interfaces, services, and content systems.',
+    },
+    {
+      title: 'Care about the details',
+      description:
+        'Responsive behavior, authoring needs, integrations, and interaction states all matter to whether a feature works well in practice.',
+    },
+    {
+      title: 'Collaborate and keep learning',
+      description:
+        'I value integrity, open knowledge sharing, and continuous learning, bringing those habits into agile delivery and problem solving.',
+    },
+  ],
+  languages: ['English', 'Bengali', 'Hindi'],
+  interests: [
+    {
+      title: 'Technology',
+      interests: ['Latest languages', 'Raspberry Pi', 'Batocera', 'Technology innovations'],
+    },
+    {
+      title: 'Indoor activities',
+      interests: ['Chess', 'Carrom', 'Chinese checkers', 'UNO', 'PlayStation', 'Table tennis'],
+    },
+    {
+      title: 'Outdoor activities',
+      interests: ['Swimming', 'Jogging', 'Cycling', 'Badminton', 'Football'],
+    },
+    {
+      title: 'Other interests',
+      interests: ['Trekking', 'Sightseeing', 'Reading', 'Exploring core functionality in familiar skills'],
+    },
+  ],
+};
