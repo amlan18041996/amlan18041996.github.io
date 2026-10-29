@@ -1,39 +1,32 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import Home from './pages/Home';
-import Story from './pages/Story';
-import Projects from './pages/Projects';
-import Skills from './pages/Skills';
-import Blogs from './pages/Blogs';
-import BlogDetail from './pages/BlogDetail';
-import Galleria from './pages/Galleria';
-import Guestbook from './pages/Guestbook';
-import { useThemeStore, getThemeColors } from './store/themeStore';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import { lazy, Suspense } from 'react';
+import RootLayout from './layouts/RootLayout';
+import NotFoundPage from './pages/NotFoundPage';
+import PortfolioPage from './pages/PortfolioPage';
+
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const DigitalResumePage = lazy(() => import('./pages/DigitalResumePage'));
+const ExperiencePage = lazy(() => import('./pages/ExperiencePage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const WorksPage = lazy(() => import('./pages/WorksPage'));
 
 function App() {
-  const { currentTheme } = useThemeStore();
-  const theme = getThemeColors(currentTheme);
-
   return (
-    <Router basename="/">
-      <div className={`min-h-screen ${theme.background} ${theme.text}`}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/story" element={<Story />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/:id" element={<BlogDetail />} />
-          <Route path="/galleria" element={<Galleria />} />
-          <Route path="/guestbook" element={<Guestbook />} />
-        </Routes>
-        <Footer />
-        <ScrollToTop />
-      </div>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<RootLayout />}>
+          <Route path="/" element={<PortfolioPage />} />
+          <Route path="/about" element={<Suspense fallback={<div className="page-loading">Loading page…</div>}><AboutPage /></Suspense>} />
+          <Route path="/experience" element={<Suspense fallback={<div className="page-loading">Loading page…</div>}><ExperiencePage /></Suspense>} />
+          <Route path="/digital-resume" element={<Suspense fallback={<div className="page-loading">Loading page…</div>}><DigitalResumePage /></Suspense>} />
+          <Route path="/services" element={<Suspense fallback={<div className="page-loading">Loading page…</div>}><ServicesPage /></Suspense>} />
+          <Route path="/contact" element={<Suspense fallback={<div className="page-loading">Loading page…</div>}><ContactPage /></Suspense>} />
+          <Route path="/works" element={<Suspense fallback={<div className="page-loading">Loading page…</div>}><WorksPage /></Suspense>} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

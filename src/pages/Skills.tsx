@@ -152,15 +152,6 @@ function Skills() {
                   <h3 className="text-2xl font-bold">{category.title}</h3>
                 </div>
 
-                <div className="mb-6">
-                  <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-1000"
-                      style={{ width: `${category.level}%` }}
-                    ></div>
-                  </div>
-                </div>
-
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <span
