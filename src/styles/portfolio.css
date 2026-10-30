@@ -203,6 +203,16 @@
   animation: hero-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+.hero-copy .eyebrow {
+  justify-content: flex-start;
+}
+
+@media (max-width: 620px) {
+  .hero-copy .eyebrow {
+    justify-content: center;
+  }
+}
+
 .eyebrow {
   display: flex;
   align-items: center;
@@ -2682,8 +2692,8 @@ a.contact-detail:hover {
 
   .hero-portrait-wrap {
     width: min(76%, 340px);
-    justify-self: start;
-    margin-left: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .skills-mosaic {

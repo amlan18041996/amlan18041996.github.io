@@ -40,7 +40,7 @@ export function HeroSection() {
         </Reveal>
 
         <Reveal className="hero-copy">
-          <p className="eyebrow">
+          <p className="eyebrow" aria-label="Portfolio location">
             <span className="eyebrow-mark" />
             Portfolio <span aria-hidden="true">/</span> {person.location}
           </p>
