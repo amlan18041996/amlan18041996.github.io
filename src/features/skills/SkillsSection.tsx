@@ -1,15 +1,20 @@
 import { useState } from 'react';
-import { ArrowDownRight, Check } from 'lucide-react';
-import { portfolioData } from '../../data/portfolio';
+import { ArrowDownRight } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
+import { getAllSkills } from '../../lib/resume';
 
-const skillGroups = [
-  { id: 'all', label: 'All skills', categories: [] },
-  { id: 'frontend', label: 'Frontend', categories: ['web', 'js-libraries', 'js-frameworks', 'state'] },
-  { id: 'backend', label: 'Backend', categories: ['languages', 'backend', 'db'] },
-  { id: 'platforms', label: 'Platforms', categories: ['cms', 'tools', 'cloud', 'platforms', 'project-tools'] },
-  { id: 'integrations', label: 'Integrations', categories: ['payments', 'ai-integrations', 'app-integrations'] },
-] as const;
+const essentialSkills = [
+  'JavaScript',
+  'TypeScript',
+  'React JS',
+  'Vue JS',
+  'Node JS',
+  'Python',
+  'AEM Franklin',
+  'Tailwind CSS',
+  'Docker',
+  'Coveo',
+];
 
 const skillIconAliases: Record<string, string> = {
   'Angular 2/4/13': 'angular',
@@ -95,28 +100,18 @@ function getSkillIconFallbackUrl(skill: string) {
 }
 
 export function SkillsSection() {
-  const [activeGroup, setActiveGroup] = useState<(typeof skillGroups)[number]['id']>('all');
-  const activeCategoryIds = skillGroups.find((group) => group.id === activeGroup)?.categories ?? [];
-  const categories = activeGroup === 'all'
-    ? portfolioData.skillCategories
-    : portfolioData.skillCategories.filter((category) =>
-      (activeCategoryIds as readonly string[]).includes(category.id));
-  const skills = categories
-    .flatMap((category, categoryIndex) =>
-      category.skills.map((skill, skillIndex) => ({
-        skill,
-        categoryId: category.id,
-        categoryIndex,
-        skillIndex,
-      })))
-    .sort((a, b) => a.skillIndex - b.skillIndex || a.categoryIndex - b.categoryIndex);
+  const [showAll, setShowAll] = useState(false);
+  const allSkills = getAllSkills();
+  const skills = showAll
+    ? allSkills
+    : essentialSkills.filter((skill) => allSkills.includes(skill));
 
   return (
     <section className="section-block skills-section" id="skills" data-home-section aria-labelledby="skills-title">
       <div className="page-container">
         <Reveal className="section-heading-row">
           <div>
-            <p className="eyebrow">04 — The toolkit</p>
+            <p className="eyebrow">03 — The toolkit</p>
             <h2 className="section-title" id="skills-title">
               Skills & tools<span className="title-period">.</span>
             </h2>
@@ -125,76 +120,50 @@ export function SkillsSection() {
             Technologies and tools documented across the résumé and project history.
           </p>
         </Reveal>
-        <div className="skills-library">
-          <nav className="skills-library-nav" aria-label="Filter technologies by category">
-            <p className="skills-library-label">Browse the toolkit</p>
-            {skillGroups.map((group, index) => (
-              <button
-                className={`skills-library-filter ${activeGroup === group.id ? 'is-active' : ''}`}
-                type="button"
-                key={group.id}
-                aria-pressed={activeGroup === group.id}
-                aria-controls="skills-field"
-                onClick={() => setActiveGroup(group.id)}
-              >
-                <span className="skills-filter-index">{String(index + 1).padStart(2, '0')}</span>
-                <span>{group.label}</span>
-                {activeGroup === group.id && <Check size={15} aria-hidden="true" />}
-              </button>
-            ))}
-            <p className="skills-library-note">
-              A living toolkit, gathered from documented work and projects.
-            </p>
-          </nav>
-          <div className="skills-library-board">
-            <div className="skills-board-heading">
-              <div>
-                <p className="eyebrow">Technology index</p>
-                <h3>{skillGroups.find((group) => group.id === activeGroup)?.label}</h3>
-              </div>
-              <ArrowDownRight size={22} aria-hidden="true" />
+        <div className="essential-skills">
+          <div className="essential-skills-heading">
+            <div>
+              <p className="eyebrow">A focused toolkit</p>
+              <h3>{showAll ? 'All skills & tools' : 'Essential skills'}</h3>
             </div>
-            <div
-              className="skills-matrix"
-              id="skills-field"
-              role="list"
-              aria-label={`${skillGroups.find((group) => group.id === activeGroup)?.label} technologies and tools`}
-              aria-live="polite"
-            >
-              {skills.map(({ skill, categoryId }, index) => (
-                <div
-                  className="skill-entry"
-                  key={`${categoryId}-${skill}`}
-                  title={skill}
-                  role="listitem"
-                >
-                  <span className="skill-entry-index">{String(index + 1).padStart(2, '0')}</span>
-                  <span className="skill-entry-icon" aria-hidden="true">
-                    <img
-                      src={getSkillIconUrl(skill)}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      data-fallback={getSkillIconFallbackUrl(skill)}
-                      onError={(event) => {
-                        const fallback = event.currentTarget.dataset.fallback;
-                        if (fallback) {
-                          delete event.currentTarget.dataset.fallback;
-                          event.currentTarget.src = fallback;
-                          return;
-                        }
-                        event.currentTarget.style.display = 'none';
-                        const mark = event.currentTarget.nextElementSibling;
-                        if (mark instanceof HTMLElement) mark.style.display = 'block';
-                      }}
-                    />
-                    <span>{getSkillMark(skill)}</span>
-                  </span>
-                  <span className="skill-entry-name">{skill}</span>
-                </div>
-              ))}
-            </div>
+            <ArrowDownRight size={22} aria-hidden="true" />
           </div>
+          <div className="essential-skills-grid" role="list" aria-live="polite">
+            {skills.map((skill) => (
+              <div className="essential-skill" key={skill} role="listitem">
+                <span className="essential-skill-icon" aria-hidden="true">
+                  <img
+                    src={getSkillIconUrl(skill)}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    data-fallback={getSkillIconFallbackUrl(skill)}
+                    onError={(event) => {
+                      const fallback = event.currentTarget.dataset.fallback;
+                      if (fallback) {
+                        delete event.currentTarget.dataset.fallback;
+                        event.currentTarget.src = fallback;
+                        return;
+                      }
+                      event.currentTarget.style.display = 'none';
+                      const mark = event.currentTarget.nextElementSibling;
+                      if (mark instanceof HTMLElement) mark.style.display = 'block';
+                    }}
+                  />
+                  <span>{getSkillMark(skill)}</span>
+                </span>
+                <span>{skill}</span>
+              </div>
+            ))}
+          </div>
+          <button
+            className="button button-quiet skills-show-all"
+            type="button"
+            aria-expanded={showAll}
+            onClick={() => setShowAll((expanded) => !expanded)}
+          >
+            {showAll ? 'Show essential skills' : `Show all ${allSkills.length} skills & tools`}
+          </button>
         </div>
       </div>
     </section>

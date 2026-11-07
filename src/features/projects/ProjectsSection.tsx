@@ -1,10 +1,8 @@
 import { useMemo, useState } from 'react';
-import { BriefcaseBusiness, Code2 } from 'lucide-react';
 import { Link } from 'react-router';
 import type { Project } from '../../types/portfolio';
 import { portfolioData } from '../../data/portfolio';
 import { Reveal } from '../../components/Reveal';
-import { ProjectDetailModal } from './ProjectDetailModal';
 
 type ProjectFilter = 'all' | Project['type'];
 
@@ -20,18 +18,18 @@ interface ProjectsSectionProps {
 
 export function ProjectsSection({ showAllProjects = false }: ProjectsSectionProps) {
   const [filter, setFilter] = useState<ProjectFilter>('all');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [homeProjectIds] = useState(() => {
-    const ids = portfolioData.projects.map((project) => project.id);
-    for (let index = ids.length - 1; index > 0; index -= 1) {
+    if (showAllProjects) return new Set<string>();
+    const shuffled = [...portfolioData.projects];
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
       const randomIndex = Math.floor(Math.random() * (index + 1));
-      [ids[index], ids[randomIndex]] = [ids[randomIndex], ids[index]];
+      [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
     }
-    return ids.slice(0, 5);
+    return new Set(shuffled.slice(0, 4).map((project) => project.id));
   });
   const projects = useMemo(
     () => portfolioData.projects.filter((project) =>
-      (showAllProjects || homeProjectIds.includes(project.id))
+      (showAllProjects || homeProjectIds.has(project.id))
       && (filter === 'all' || project.type === filter)),
     [filter, homeProjectIds, showAllProjects],
   );
@@ -47,7 +45,7 @@ export function ProjectsSection({ showAllProjects = false }: ProjectsSectionProp
       <div className="page-container">
         <Reveal className="section-heading-row">
           <div>
-            <p className="eyebrow">{showAllProjects ? 'Selected work' : '03 — Selected work'}</p>
+            <p className="eyebrow">{showAllProjects ? 'Selected work' : '02 — Selected work'}</p>
             <Heading className="section-title" id="projects-title">
               {showAllProjects ? 'Works' : 'Projects'}<span className="title-period">.</span>
             </Heading>
@@ -57,53 +55,37 @@ export function ProjectsSection({ showAllProjects = false }: ProjectsSectionProp
           </p>
         </Reveal>
 
-        <div className="project-toolbar">
-          <div className="project-filters" role="group" aria-label="Filter projects">
-            {filters.map((item) => (
-              <button
-                className={`filter-button ${filter === item.value ? 'is-active' : ''}`}
-                type="button"
-                key={item.value}
-                aria-pressed={filter === item.value}
-                onClick={() => setFilter(item.value)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+        <div className={`project-toolbar ${showAllProjects ? 'project-toolbar-all' : ''}`}>
+          {!showAllProjects && (
+            <div className="project-filters" role="group" aria-label="Filter projects">
+              {filters.map((item) => (
+                <button
+                  className={`filter-button ${filter === item.value ? 'is-active' : ''}`}
+                  type="button"
+                  key={item.value}
+                  aria-pressed={filter === item.value}
+                  onClick={() => setFilter(item.value)}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
           <span className="project-count">{String(projects.length).padStart(2, '0')} projects</span>
         </div>
 
         <div className="projects-grid" aria-live="polite">
           {projects.map((project, index) => (
             <Reveal className="project-card" key={project.id}>
-              <article
+              <Link
                 className="project-card-content"
-                role="button"
-                tabIndex={0}
-                aria-haspopup="dialog"
+                to={`/works/${project.id}`}
                 aria-label={`View project details for ${project.title}`}
-                onClick={() => setSelectedProject(project)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    setSelectedProject(project);
-                  }
-                }}
               >
                 <div className="project-card-topline">
-                  <span className="project-type">
-                    {project.type === 'work' ? (
-                      <BriefcaseBusiness size={14} aria-hidden="true" />
-                    ) : (
-                      <Code2 size={14} aria-hidden="true" />
-                    )}
-                    {project.type === 'work' ? 'Professional' : 'Personal'}
-                  </span>
+                  <h3>{project.title}</h3>
                   <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
                 </div>
-                <h3>{project.title}</h3>
-                <p className="project-period">{project.period}</p>
                 {(project.company || project.role) && (
                   <p className="project-company">
                     {[project.role, project.company].filter(Boolean).join(' · ')}
@@ -113,7 +95,7 @@ export function ProjectsSection({ showAllProjects = false }: ProjectsSectionProp
                 <div className="project-tags" aria-label="Technologies">
                   {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                 </div>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -125,11 +107,6 @@ export function ProjectsSection({ showAllProjects = false }: ProjectsSectionProp
           </div>
         )}
       </div>
-      <ProjectDetailModal
-        project={selectedProject}
-        isOpen={selectedProject !== null}
-        onClose={() => setSelectedProject(null)}
-      />
     </section>
   );
 }

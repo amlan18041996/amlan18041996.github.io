@@ -64,8 +64,13 @@ export default function ContactPage() {
                 <input autoComplete="email" name="email" type="email" required />
               </label>
               <label>
-                Subject
-                <input name="subject" required />
+                What would you like to discuss?
+                <select name="subject" defaultValue="" required>
+                  <option value="" disabled>Select a topic</option>
+                  <option>Discuss a project</option>
+                  <option>Discuss about opportunity</option>
+                  <option>Software Consultation</option>
+                </select>
               </label>
               <label>
                 Message
@@ -80,7 +85,7 @@ export default function ContactPage() {
           </Reveal>
 
           <aside className="contact-page-details" aria-label="Other ways to connect">
-            <Reveal className="contact-page-card">
+            <Reveal className="contact-page-card direct-contact-card">
               <div className="contact-card-heading">
                 <span className="contact-step">02</span>
                 <p className="eyebrow">Direct contact</p>

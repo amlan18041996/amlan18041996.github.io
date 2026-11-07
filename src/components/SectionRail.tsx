@@ -1,11 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router';
 import { homeSectionLinks } from '../constants/site';
 import { scrollToSection } from '../lib/navigation';
+import { useScrollProgress } from '../hooks/useScrollProgress';
+
+const MOBILE_HIDE_DELAY = 1500;
 
 export function SectionRail() {
-  const [activeSection, setActiveSection] = useState<string>('top');
+  const progress = useScrollProgress();
+  const [activeSection, setActiveSection] = useState<string>('introduction');
+  const [mobileVisible, setMobileVisible] = useState(false);
+  const [hasPinged, setHasPinged] = useState(false);
+  const wasCompleteRef = useRef(false);
   const navigateToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     scrollToSection(sectionId);
@@ -50,12 +57,41 @@ export function SectionRail() {
     };
   }, []);
 
+  useEffect(() => {
+    const complete = progress >= 0.999;
+    if (complete && !wasCompleteRef.current) {
+      wasCompleteRef.current = true;
+      setHasPinged(true);
+    } else if (!complete && progress < 0.9 && wasCompleteRef.current) {
+      wasCompleteRef.current = false;
+      setHasPinged(false);
+    }
+  }, [progress]);
+
+  useEffect(() => {
+    let hideTimer: number | undefined;
+    const show = () => {
+      setMobileVisible(true);
+      window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => setMobileVisible(false), MOBILE_HIDE_DELAY);
+    };
+    window.addEventListener('scroll', show, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', show);
+      window.clearTimeout(hideTimer);
+    };
+  }, []);
+
   const activeIndex = homeSectionLinks.findIndex(({ id }) => id === activeSection);
   const previousSection = homeSectionLinks[activeIndex - 1];
   const nextSection = homeSectionLinks[activeIndex + 1];
 
   return (
-    <aside className="section-rail" aria-label="Homepage sections">
+    <aside
+      className={`section-rail ${mobileVisible ? 'is-mobile-visible' : ''} ${hasPinged ? 'is-complete' : ''}`}
+      aria-label="Homepage sections"
+      style={{ ['--resume-progress' as string]: String(progress) }}
+    >
       {previousSection ? (
         <Link
           className="section-rail-arrow"

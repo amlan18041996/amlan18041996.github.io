@@ -144,7 +144,6 @@ function Skills() {
                 key={index}
                 className={`relative group ${theme.contentBackground} p-8 rounded-2xl`}
               >
-                {/* <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-20 blur group-hover:opacity-30 transition-opacity"></div> */}
                 <div className="flex items-center mb-6">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 mr-4">
                     {category.icon}

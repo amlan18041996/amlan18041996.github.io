@@ -14,25 +14,6 @@
   max-width: 78rem;
 }
 
-/* --- Reading progress ------------------------------------- */
-
-.resume-progress {
-  position: sticky;
-  z-index: 30;
-  top: 5rem;
-  height: 2px;
-  margin-bottom: 1.5rem;
-  background: color-mix(in srgb, var(--line) 60%, transparent);
-}
-
-.resume-progress-bar {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  transform-origin: left center;
-  will-change: transform;
-}
-
 /* --- Masthead --------------------------------------------- */
 
 .resume-cover {
@@ -439,6 +420,22 @@
   text-transform: uppercase;
 }
 
+.resume-experience-detail {
+  margin-top: 1rem;
+}
+
+.resume-experience-detail .resume-detail-label {
+  color: var(--accent);
+}
+
+.resume-experience-detail .resume-timeline-summary {
+  margin-bottom: 0;
+}
+
+.resume-experience-detail .detail-list {
+  margin-top: 0;
+}
+
 .resume-timeline-panel .detail-list {
   margin-top: 0;
 }
@@ -838,10 +835,6 @@
     grid-column: auto;
   }
 
-  .resume-progress {
-    top: 5rem;
-  }
-
   .resume-aside {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1100,7 +1093,6 @@
   .site-header,
   .site-footer,
   .scroll-to-top,
-  .resume-progress,
   .resume-toc,
   .resume-rail,
   .resume-cover-actions,

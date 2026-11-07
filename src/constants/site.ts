@@ -10,18 +10,15 @@ export const primaryLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/works', label: 'Works' },
-  { href: '/experience', label: 'Experience' },
   { href: '/about', label: 'About' },
   { href: '/digital-resume', label: 'Resume' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 
 export const homeSectionLinks = [
-  { id: 'top', label: 'Home' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'introduction', label: 'Home' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills & tools' },
-  { id: 'credentials', label: 'Credentials' },
   { id: 'principles', label: 'Principles' },
   { id: 'interests', label: 'Interests' },
   { id: 'commitments', label: 'What you can count on' },

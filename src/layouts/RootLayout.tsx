@@ -14,13 +14,15 @@ function RouteScrollManager() {
     const titles: Record<string, string> = {
       '/': 'Full Stack Developer',
       '/about': 'Who I am',
-      '/experience': 'Experience',
       '/digital-resume': 'Digital Résumé',
       '/services': 'Services',
       '/contact': 'Contact',
       '/works': 'Works',
     };
-    document.title = `${portfolioData.person.name} — ${titles[pathname] ?? 'Page not found'}`;
+    const project = pathname.startsWith('/works/')
+      ? portfolioData.projects.find((item) => item.id === pathname.slice('/works/'.length))
+      : undefined;
+    document.title = `${portfolioData.person.name} — ${project?.title ?? titles[pathname] ?? 'Page not found'}`;
 
     if (hash) {
       scrollToSection(decodeURIComponent(hash.slice(1)));
