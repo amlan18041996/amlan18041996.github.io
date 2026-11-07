@@ -47,7 +47,9 @@ export interface Project {
   role?: string;
   period: string;
   description: string;
+  responsibilities: string[];
   highlights: string[];
+  challenge?: string;
   impact?: string;
   tags: string[];
   featured?: boolean;

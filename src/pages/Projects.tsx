@@ -7,7 +7,7 @@ function Projects() {
 
   const workProjects = [
     {
-      title: 'Helius, LMS, Phenix, Avion',
+      title: 'Multi-brand AEM EDS Migration',
       company: 'GSPANN Technologies',
       role: 'Technical Lead',
       period: 'Oct 2022 — Present',

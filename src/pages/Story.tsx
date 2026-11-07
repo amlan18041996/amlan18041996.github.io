@@ -227,11 +227,6 @@ function Story() {
               className={`relative w-full h-96 md:h-[460px] lg:h-full bg-cover rounded-xl`}
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl opacity-20 blur-lg"></div>
-              {/* <img 
-                src={cover_page} 
-                alt="Profile" 
-                className="relative rounded-xl w-full h-96 md:h-[460px] lg:h-[560px] object-cover"
-              /> */}
             </div>
             <div className="mb-auto">
               <h2 className="text-4xl font-bold mb-8">About Me</h2>

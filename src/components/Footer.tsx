@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin } from 'lucide-react';
 import { Link } from 'react-router';
 import { portfolioData } from '../data/portfolio';
 import { primaryLinks } from '../constants/site';
@@ -6,8 +6,6 @@ import { primaryLinks } from '../constants/site';
 const socialIcons = {
   github: Github,
   linkedin: Linkedin,
-  email: Mail,
-  website: ArrowUpRight,
 };
 
 function Footer() {
@@ -38,6 +36,8 @@ function Footer() {
           </nav>
           <div className="footer-socials" aria-label="Social profiles">
             {portfolioData.socials.map((social) => {
+              if (social.platform !== 'github' && social.platform !== 'linkedin') return null;
+
               const Icon = socialIcons[social.platform];
               return (
                 <a
@@ -45,8 +45,8 @@ function Footer() {
                   key={social.platform}
                   aria-label={social.label}
                   title={social.label}
-                  target={social.platform === 'email' ? undefined : '_blank'}
-                  rel={social.platform === 'email' ? undefined : 'noreferrer'}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <Icon size={17} aria-hidden="true" />
                 </a>

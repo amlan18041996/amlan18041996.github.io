@@ -108,8 +108,8 @@ export const portfolioData: PortfolioData = {
   ],
   projects: [
     {
-      id: 'proj-helius',
-      title: 'Helius, LMS, Phenix, Avion',
+      id: 'proj-multi-brand-aem-eds',
+      title: 'Multi-brand AEM EDS Migration',
       type: 'work',
       company: 'GSPANN Technologies',
       companyUrl: 'https://www.gspann.com',
@@ -117,6 +117,12 @@ export const portfolioData: PortfolioData = {
       period: 'Oct 2022 — Present',
       description:
         'Migration of AEM 6.5 projects to AEM Edge Delivery Services (EDS) to reduce development costs and improve page speed. The resume names Lifesciences Danaher, Leica Microsystems, Phenomenex, and Aldevron among the client brands.',
+      responsibilities: [
+        'Lead migration of multi-brand AEM sites to Edge Delivery Services.',
+        'Coordinate reusable blocks, search integrations, localization, and authoring workflows.',
+      ],
+      challenge:
+        'Move multiple brand experiences from AEM 6.5 to Edge Delivery Services while supporting varied authoring models, search integrations, and localized content.',
       impact: 'The migration was intended to reduce development costs and improve page speed; measured results are not listed in the project notes.',
       highlights: [
         'Migrated multiple brands from AEM 6.5 to AEM Edge Delivery Services.',
@@ -148,6 +154,12 @@ export const portfolioData: PortfolioData = {
       period: 'Oct 2022 — Present',
       description:
         'Scientific electronic parts/components management application for healthcare and pharmaceuticals. Built the frontend architecture in Vue JS, VueUse, and Pinia, with content managed in AEM 6.5.',
+      responsibilities: [
+        'Own frontend architecture and component delivery for the scientific product experience.',
+        'Connect Vue application features with AEM-managed content and REST APIs.',
+      ],
+      challenge:
+        'Connect a data-rich scientific product experience with AEM-managed content, user profile workflows, and reusable interface components.',
       highlights: [
         'Created the frontend architecture with Vue JS, VueUse, and Pinia.',
         'Built user-management/profile pages and AEM 6.5 dialog-level component authoring.',
@@ -167,6 +179,12 @@ export const portfolioData: PortfolioData = {
       period: 'Apr 2021 — Sep 2022',
       description:
         'Customer Support eCommerce platform for product ticketing, returns, tracking, product details, and case status.',
+      responsibilities: [
+        'Deliver customer-facing case, returns, and product-support journeys.',
+        'Implement secure portal flows and contribute to service and platform modernization.',
+      ],
+      challenge:
+        'Support customer case and returns workflows with secure access while moving a legacy Symfony and Angular application to a new stack.',
       highlights: [
         'Built the customer portal in React JS with authentication, authorization, and email/SMS two-factor authentication.',
         'Participated in Symfony microservices development.',
@@ -186,6 +204,12 @@ export const portfolioData: PortfolioData = {
       period: 'Jul 2017 — Mar 2021',
       description:
         'Banking employee dashboard connecting teams on one platform to manage client relationships and social-media conversations.',
+      responsibilities: [
+        'Build employee dashboard features for relationship and conversation management.',
+        'Support role-based access, real-time communication, and external messaging integrations.',
+      ],
+      challenge:
+        'Bring role-based relationship management together with conversations spanning WhatsApp, WeChat, Line, and real-time chat.',
       highlights: [
         'Created WhatsApp and WeChat extensions to capture and monitor relationship-manager/client messages.',
         'Built role-based user management for managers, clients, relationship managers, admins, and developers.',
@@ -204,6 +228,12 @@ export const portfolioData: PortfolioData = {
       period: 'Jul 2017 — Mar 2021',
       description:
         'Education platform connecting students with courses, mentors, time slots, exam-preparation Q&A, and individual, group, or recorded learning.',
+      responsibilities: [
+        'Develop student, mentor, course, and learning-session workflows.',
+        'Connect scheduling, payment, and video experiences across learning formats.',
+      ],
+      challenge:
+        'Bring multiple learning formats, mentor scheduling, payments, and video experiences into one education platform.',
       highlights: [
         'Built the architecture and user interface for coach/trainee and pupil interactions.',
         'Integrated Stripe payments and Zoom video sharing/capturing.',
@@ -220,6 +250,12 @@ export const portfolioData: PortfolioData = {
       period: 'Jul 2017 — Mar 2021',
       description:
         'Website crawler that captures selected text, images, or videos from a user-provided URL and provides plain-text, PDF, or DOC exports with filters.',
+      responsibilities: [
+        'Build URL-based content extraction and filtering workflows.',
+        'Provide document export options for selected page content.',
+      ],
+      challenge:
+        'Let users selectively extract web content and produce useful document exports from arbitrary URLs.',
       highlights: [
         'Built the crawler with Python and Flask, using BeautifulSoup for parsing.',
         'Added selective content extraction and PDF/DOC export.',
@@ -233,6 +269,12 @@ export const portfolioData: PortfolioData = {
       period: 'Jul 2026 — Present',
       description:
         'Full-featured e-commerce storefront built with Nuxt 4, Vue 3, and TypeScript, integrated with Shopify Storefront API and Stripe.',
+      responsibilities: [
+        'Build storefront, search, customer account, and checkout experiences.',
+        'Connect Shopify, Stripe, Typesense, and the operations dashboard.',
+      ],
+      challenge:
+        'Coordinate product search and syncing, customer accounts, checkout, administration, and deployment in one storefront.',
       highlights: [
         'Self-hosted Typesense with product syncing, autocomplete, trending searches, and faceted filtering.',
         'Authentication, customer profiles/addresses/order history, and a multi-step checkout.',
@@ -263,6 +305,12 @@ export const portfolioData: PortfolioData = {
       period: 'Mar 2024 — Jun 2026',
       description:
         'Thirteen self-contained JavaScript, TypeScript, and library projects demonstrating more than 45 core JS/TS concepts.',
+      responsibilities: [
+        'Design a shared learning experience for independent interactive projects.',
+        'Keep demos accessible, responsive, and efficient to load.',
+      ],
+      challenge:
+        'Present many independent learning demos through one application while retaining lazy loading, a lean runtime, and production-focused delivery.',
       highlights: [
         'Custom SPA architecture with hash routing and lazy-loaded interactive demos.',
         'Educational JavaScript/TypeScript histories and topic trees.',
@@ -289,6 +337,12 @@ export const portfolioData: PortfolioData = {
       period: 'May 2026 — Jul 2026',
       description:
         'CSV data-management tool with schema-driven creation, LLM-based synthetic data generation via Ollama, an interactive editor, and an in-memory SQLite query runner.',
+      responsibilities: [
+        'Build CSV import, schema, editing, export, and data-analysis workflows.',
+        'Integrate local model-generated data with in-browser SQL analysis.',
+      ],
+      challenge:
+        'Combine configurable CSV workflows, generated data, rich editing, and SQL analysis in a single tool.',
       highlights: [
         'Drag-and-drop CSV upload, file validation, and configurable schema creation.',
         'Ollama/LLaMA 3.2 synthetic data generation.',
@@ -316,6 +370,12 @@ export const portfolioData: PortfolioData = {
       period: 'June 2026 — September 2026',
       description:
         "An AI-powered pastime and entertainment recommendation app that follows a person's taste and mood, built with SvelteKit, Groq, Gemini, and TMDB.",
+      responsibilities: [
+        'Build a taste- and mood-led entertainment discovery experience.',
+        'Connect recommendation flows to AI and entertainment data services.',
+      ],
+      challenge:
+        'Combine taste- and mood-based recommendations with multiple AI and entertainment data integrations.',
       highlights: [
         'AI-powered recommendations based on taste and mood.',
         'Built with SvelteKit, Groq, Gemini, TMDB, and Supabase.',

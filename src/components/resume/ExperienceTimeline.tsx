@@ -89,14 +89,17 @@ export function ExperienceTimeline({ expandSignal = 0 }: ExperienceTimelineProps
                   {experience.company}
                   {experience.location ? ` · ${experience.location}` : ''}
                 </p>
-                <p className="resume-timeline-period">{experience.period}</p>
-
                 <div className="resume-timeline-panel" id={panelId} hidden={!isOpen}>
-                  <p className="resume-timeline-summary">{experience.description}</p>
-                  <p className="resume-detail-label">Responsibilities &amp; contributions</p>
-                  <ul className="detail-list">
-                    {experience.responsibilitiesAndContributions.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
+                  <section className="resume-experience-detail" aria-label="Responsibilities">
+                    <p className="resume-detail-label">Responsibilities</p>
+                    <p className="resume-timeline-summary">{experience.description}</p>
+                  </section>
+                  <section className="resume-experience-detail" aria-label="Contributions">
+                    <p className="resume-detail-label">Contributions</p>
+                    <ul className="detail-list">
+                      {experience.responsibilitiesAndContributions.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </section>
                   {experience.companyUrl && (
                     <a className="text-link" href={experience.companyUrl} target="_blank" rel="noreferrer">
                       Company website <ArrowUpRight size={13} aria-hidden="true" />
